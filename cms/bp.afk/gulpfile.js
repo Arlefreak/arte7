@@ -25,7 +25,8 @@ const jpegtran    = require('imagemin-jpegtran');
 const svgo        = require('imagemin-svgo');
 
 const DEBUG = process.env.NODE_ENV === 'production' ? false : true;
-const DEST_PATH = 'public/';
+const DEST_PATH = '../static/';
+const TEMPLATE_PATH = '../templates/'
 const DEST_PATH_LIB = DEST_PATH + 'lib/';
 
 // grab libraries files from bower_components, minify and push in /public
@@ -129,19 +130,19 @@ gulp.task('img', ()=>{
 
 gulp.task('html', ()=> {
     gulp.src('./src/*.html')
-    .pipe(gulp.dest(DEST_PATH))
+    .pipe(gulp.dest(TEMPLATE_PATH))
     .pipe(connect.reload());
 });
 
 gulp.task('fonts', ()=> {
     var filterFont = ['src/**/*.eot', 'src/**/*.woff', 'src/**/*.ttf', 'src/**/*.otf'];
     gulp.src(filterFont)
-    .pipe(gulp.dest('./public/'));
+    .pipe(gulp.dest(DEST_PATH));
 });
 
 gulp.task('files', ()=> {
     gulp.src(['./src/**.*', '!./src/**.*.html', '!./src/**.*js', '!./src/img/'])
-    .pipe(gulp.dest('./public/'));
+    .pipe(gulp.dest(TEMPLATE_PATH));
 });
 
 gulp.task('react', ()=> {

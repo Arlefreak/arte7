@@ -482,6 +482,15 @@ main {
 .temario a:hover {
   color: #e54115;
 }
+.gray-bg {
+  background-color: #e3e3e3;
+}
+.margin {
+  width: 100%;
+  display: block;
+  padding: 20px 0 20px 0;
+  background-color: #fff;
+}
 .rich-text {
   margin: 0px auto 0 auto;
 }
@@ -503,6 +512,82 @@ main {
   content: '\2219';
   position: absolute;
   left: 0;
+}
+.film-slider {
+  height: auto;
+  width: 100%;
+  padding: 20px;
+}
+.film-slider article {
+  width: 33.333%;
+  position: relative;
+  margin: 0 20px 0 20px;
+}
+.film-slider img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.film-slider .info {
+  width: 100%;
+  font-size: 1em;
+  color: #000;
+  margin: 20px 0 0 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-box-align: start;
+  -moz-box-align: start;
+  -o-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.film-slider .info h3 {
+  margin: 0;
+}
+.film-slider .slick-arrow {
+  background: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  border: none;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  content: "";
+  z-index: 100;
+  cursor: pointer;
+}
+.film-slider .slick-prev {
+  left: 2%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+.film-slider .slick-next {
+  right: 2%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
 }
 footer {
   width: 100%;

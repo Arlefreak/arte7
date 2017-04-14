@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+{% block header-refs %}
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+{% endblock %}
+{% block content %}
+<main>
+    <div class="wrapper">
+        <article>
+            <h2>productora</h2>
+            <p class="big">
+                Arte 7 Producciones es una empresa constituida por profesionales activos en el medio con trabajo 
+                reconocido a nivel nacional e internacional. Nuestra propuesta como casa productora se fundamenta 
+                en brindar la adecuada interpretación visual y de contenido a cada proyecto.
+            </p>
+            <p class="big">
+                El fin de Arte 7 como casa productora es mantener el más alto nivel de resolución a las necesidades de 
+                cada caso específico. A través del desarrollo de las cualidades narrativas audiovisuales con un sentido 
+                lúdico y estético, en Arte 7 Producciones proponemos integrar las formas cinematográficas a las 
+                necesidades de comunicación.
+            </p>
+            <p class="big">
+                En el ámbito cinematográfico, nos hemos caracterizado por realizar películas de autor, es decir, 
+                películas en las que el director es el propio guionista y se involucra completamente en la producción 
+                de la obra. Consideramos que la posibilidad de seguir realizando películas radica en que éstas 
+                muestren un punto de vista particular e interesante, capaz de conmover a audiencias de todo el mundo, 
+                sin tener que depender únicamente de la taquilla nacional.
+            </p>
+        </article>
+    </div>
+</main>
+
+<div class="margin"></div>
+
+<main class="gray-bg">
+    <div class="wrapper padding-top">
+        <h2>FILMOGRAFIA</h2>
+    </div>
+    <div class="wrapper film-slider">
+        {% for i in "xxxxxxxxxxxxxxx" %}
+        <article>
+            <a href="">
+                <div class="cover">
+                    <img src="http://placehold.it/350x600" alt="poster">
+                </div>
+                <div class="info">
+                    <h3>DESCONSUELO</h3>
+                    <div>
+                        <p>(2014)</p>
+                        <p>Generacion 2011-2014</p>
+                    </div>
+                </div>
+            </a>
+        </article>
+        {% endfor %}
+    </div>
+</main>
+
+<main>
+    <div class="wrapper">
+        <h2>publicidad</h2>
+        <p class="big">
+            Arte 7 Producciones  Es una casa productora enfocada al servicio a clientes que buscan innovación y 
+            promoción en su imagen corporativa acompañada de nuevos contenidos globales para su negocio y 
+            espectadores.
+        </p>
+        <p class="big">
+            Nuestros servicios: Producción de videos corporativos, videos musicales, desarrollo de videos para 
+            web, comerciales para televisión, medios digitales, animación y todo lo relacionado con actualización o 
+            renovación de imagen corporativa audiovisual.
+        </p>
+        <p class="big">
+            Razón: Pasión por las cosas que se mueven y que se escuchan, nos gusta producir.
+        </p>
+        <p class="big">
+            Ideas: Novedosas ideas que nos llevan a un mejor trabajo creativo para la comunicación con ustedes y 
+            con sus clientes.
+        </p>
+        <p class="big">
+            Investigación: Aprendemos todo acerca de su producto, marca y compañía. Preguntamos y 
+            escuchamos para transmitir con claridad.
+        </p>
+        <p class="big">
+            Desarrollo creativo: Generamos el concepto y desarrollamos desde el guión hasta su entrega final.
+        </p>
+        <h2>demo</h2>
+        <div class="video">
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+
+{% block footer-refs %}
+<script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+crossorigin="anonymous">
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+<script>
+    $('.film-slider').slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        arrows: true,
+        dots: false
+    });
+</script>
+{% endblock %}
