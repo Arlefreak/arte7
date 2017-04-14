@@ -1,0 +1,56 @@
+footer
+    width 100%
+    box-sizing border-box
+    background $black
+    padding 40px 0 40px 0
+    overflow hidden
+    display flex
+    min-height 200px
+    text-transform uppercase
+    flex-flow column
+    .wrapper
+        height 100%
+        display flex
+        flex-flow row wrap
+        align-items center
+        justify-content space-between
+        &:first-child
+            margin 0 auto 10px auto
+        &:last-child
+            margin 10px auto 0 auto
+        span:first-child
+            font-size 0.5em
+        div
+            display flex
+            flex-flow column
+            span
+                margin 0 auto 10px auto
+    .nav-menu
+        display flex
+        &:first-child
+            width 20%
+            text-align left
+        &:last-child
+            width 80%
+            text-align right
+            align-items flex-end
+            justify-content flex-end
+        ul
+            li
+                margin 5px 0 5px 0
+                &:first-child
+                    margin 0px 0 5px 0
+                &:last-child
+                    margin 5px 0 0px 0
+    .social
+        display flex
+        width 20%
+        font-size 1.2em
+        ul
+            width 100%
+            display flex
+            flex-flow row
+            align-items center
+            justify-content space-between
+    span
+        font-size 0.7em
