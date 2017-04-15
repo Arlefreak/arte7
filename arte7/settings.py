@@ -22,10 +22,12 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
 if(DEBUG):
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['*']
 else:
     ALLOWED_HOSTS = [
         '.arlefreak.com',
+        '127.0.0.1',
+        'localhost',
     ]
 
 ADMINS = (('Arlefreak', 'hi@arlefreak.com'),)
