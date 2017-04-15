@@ -3,10 +3,12 @@
     <div class="wrapper">
         <nav class="nav-menu">
             <ul>
-                <li><a href="">ACERCA DE</a></li>
-                <li><a href="">GUIA DE ALUMNO</a></li>
-                <li><a href="">BOUTIQUE</a></li>
-                <li><a href="">CONTACTO</a></li>
+                {% for page in footer_menu %}
+                <li>
+                    <a class="{% if page.active %} active{% endif %}"
+                    href="{{page.url}}" title="{{page.name}}">{{page.name}}</a>
+                </li>
+                {% endfor %}
             </ul>
         </nav>
         <nav class="nav-menu">

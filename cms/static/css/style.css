@@ -336,6 +336,9 @@ a {
 a:hover {
   color: #e54115;
 }
+a.active {
+  color: #e54115;
+}
 main {
   background: #fff;
   color: #000;

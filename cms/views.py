@@ -1,20 +1,42 @@
 from django.shortcuts import render, render_to_response
 
 def carrera(request):
-   return render_to_response('carrera_de_cine.html')
+    context = {}
+    return render(request, 'carrera_de_cine.html', context)
 
 def cursos(request):
-   return render_to_response('cursos_talleres.html')
+    context = {}
+    return render(request, 'cursos_talleres.html', context)
 
 def productora(request):
-   return render_to_response('productora_peliculas.html')
+    context = {}
+    return render(request, 'productora_peliculas.html', context)
 
 def plantilla(request):
-   return render_to_response('plantilla_docente.html')
+    context = {}
+    return render(request, 'plantilla_docente.html', context)
 
 def otras(request):
-   return render_to_response('otras_escuelas.html')
+    context = {}
+    return render(request, 'otras_escuelas.html', context)
 
 def cortos(request):
-   return render_to_response('operas_primas_cortometrajes.html')
+    context = {}
+    return render(request, 'operas_primas_cortometrajes.html', context)
 
+
+def acerca_de(request):
+    context = {}
+    return render(request, 'operas_primas_cortometrajes.html', context)
+
+def guia_del_alumno(request):
+    context = {}
+    return render(request, 'operas_primas_cortometrajes.html', context)
+
+def boutique(request):
+    context = {}
+    return render(request, 'operas_primas_cortometrajes.html', context)
+
+def contacto(request):
+    context = {}
+    return render(request, 'operas_primas_cortometrajes.html', context)
