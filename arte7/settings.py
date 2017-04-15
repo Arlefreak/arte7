@@ -33,12 +33,16 @@ ADMINS = (('Arlefreak', 'hi@arlefreak.com'),)
 # Application definition
 
 INSTALLED_APPS = [
+    'storages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'embed_video',
+    'solo',
     'cms',
 ]
 
@@ -76,15 +80,15 @@ WSGI_APPLICATION = 'arte7.wsgi.application'
 
 
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': env('DB_NAME'),
-            'USER': env('DB_USER'),
-            'PASSWORD': env('DB_PASSWORD'),
-            'HOST': env('DB_HOST'),
-            'PORT': env('DB_PORT'),
-            }
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('DB_NAME'),
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),
+        'HOST': env('DB_HOST'),
+        'PORT': env('DB_PORT'),
+    }
+}
 
 
 # Password validation
@@ -148,7 +152,7 @@ CKEDITOR_UPLOAD_PATH = STATIC_URL + 'uploads/'
 MEDIAFILES_LOCATION = 'media'
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
-DEFAULT_FILE_STORAGE = 'vov.custom_storages.MediaStorage'
+DEFAULT_FILE_STORAGE = 'arte7.custom_storages.MediaStorage'
 
 # Email
 EMAIL_USE_TLS = True
