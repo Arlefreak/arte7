@@ -1,0 +1,10 @@
+<nav class="nav-menu">
+    <ul>
+        {% for page in menu %}
+        <li>
+            <a class="{% if page.active %} active{% endif %}"
+            href="{{page.url}}" title="{{page.name}}">{{page.name}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

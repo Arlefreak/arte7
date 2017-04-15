@@ -1,17 +1,21 @@
 {% extends "base.html" %}
+{% block header %}
+{% include 'big_header.html' %}
+{% endblock %}
 {% block content %}
 <main>
+    <div class="black-wrapper">
+        <h2>Carrera de cine</h2>
+    </div>
+    <div class="margin"></div>
     <div class="wrapper">
-        <article>
-            <h2>Carrera de cine</h2>
-            <p class="big">
-                La Carrera de Cine es nuestra propuesta académica desde hace 15 años. Mediante estudios
-                superiores y prácticas profesionales se contribuye en la consolidación educativa de nuestros
-                egresados. En Arte 7, dirigimos los esfuerzos académicos hacia el equilibrio entre estudiar y hacer el
-                cine posible bajo los estándares y requerimientos de la industria del cine mexicano. Encuentra un
-                espacio en donde pensar, discutir y hacer cine es posible.
-            </p>
-        </article>
+        <p class="big">
+            La Carrera de Cine es nuestra propuesta académica desde hace 15 años. Mediante estudios
+            superiores y prácticas profesionales se contribuye en la consolidación educativa de nuestros
+            egresados. En Arte 7, dirigimos los esfuerzos académicos hacia el equilibrio entre estudiar y hacer el
+            cine posible bajo los estándares y requerimientos de la industria del cine mexicano. Encuentra un
+            espacio en donde pensar, discutir y hacer cine es posible.
+        </p>
     </div>
     <div class="wrapper two-column">
         <div class="column">

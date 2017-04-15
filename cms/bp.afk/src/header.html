@@ -1,16 +1,9 @@
 {% load static %}
 <header>
     <div class="wrapper">
-        <img src="{% static "img/logo.svg" %}" alt="arlefreak">
-        <nav class="nav-menu">
-            <ul>
-                {% for page in menu %}
-                <li>
-                    <a class="{% if page.active %} active{% endif %}"
-                    href="{{page.url}}" title="{{page.name}}">{{page.name}}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </nav>
+        <a href="{% url 'carrera' %}">
+            <img src="{% static "img/logo.svg" %}" alt="arlefreak">
+        </a>
+        {% include 'menu.html' %}
     </div>
 </header>
