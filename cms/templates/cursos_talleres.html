@@ -4,44 +4,60 @@
 {% endblock %}
 {% block content %}
 <main>
+    <div class="black-wrapper">
+        <h1>Cursos / talleres</h1>
+    </div>
     <div class="wrapper">
         <article>
-            <h2>Cursos / talleres</h2>
-            <ul>
+            <div class="margin"></div>
+            <ul class="titles">
                 {% for curso in list_cursos %}
-                <li><a href="{% url 'cursos' curso.slug %}">{{ curso.title }}</a></li>
+                <li>
+                    <a 
+                        class="{% if curso.active %}active{% endif %}"
+                        href="{% url 'cursos' curso.slug %}">{{ curso.title }}
+                    </a>
+                </li>
                 {% endfor %}
             </ul>
+            <div class="margin"></div>
             <div class="big">
                 {{ single_curso.description | safe }}
             </div>
         </article>
     </div>
-    <div class="wrapper two-column">
-        <div class="column">
-            <div class="red-message">
-                <h3>{{ single_curso.message_title }}</h3>
-                <article>{{ single_curso.message_body | safe }}</article>
+    <div class="wrapper">
+        <section class="two-column">
+            <div class="column">
+                <div class="red-message">
+                    <h3>{{ single_curso.message_title }}</h3>
+                    <article>{{ single_curso.message_body | safe }}</article>
+                </div>
+                <div class="rich-text">
+                    {{ single_curso.second_description | safe }}
+                </div>
             </div>
-            <div class="rich-text">
-                {{ single_curso.second_description | safe }}
+            <div class="column temario">
+                <h3>Temario</h3>
+                <div class="two-column">
+                    <ul class="column titles">
+                        {% for item in list_temarios %}
+                        <li>
+                            <a 
+                                class="{% if item.active %}active{% endif %}"
+                                href="{% url 'cursos' single_curso.slug item.slug %}">{{ item.title }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <section class="left-border column rich-text">
+                        <article>
+                            {{ single_temario.description | safe }}
+                        </article>
+                    </section>
+                </div>
             </div>
-        </div>
-        <div class="column temario">
-            <h3>Temario</h3>
-            <div class="two-column">
-                <ul class="column titles">
-                    {% for item in list_temarios %}
-                    <li><a href="{% url 'cursos' single_curso.slug item.slug %}">{{item.title}}</a></li>
-                    {% endfor %}
-                </ul>
-                <section class="left-border column rich-text">
-                    <article>
-                        {{ single_temario.description | safe }}
-                    </article>
-                </section>
-            </div>
-        </div>
+        </section>
     </div>
 </main>
 {% endblock %}

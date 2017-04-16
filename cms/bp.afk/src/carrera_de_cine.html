@@ -8,7 +8,7 @@
 {% get_solo 'cms.CarreraDeCine' as carrera %}
 <main>
     <div class="black-wrapper">
-        <h2>Carrera de cine</h2>
+        <h1>Carrera de cine</h1>
     </div>
     <div class="margin"></div>
     <div class="wrapper">
@@ -16,29 +16,36 @@
             {{ carrera.description | safe }}
         </div>
     </div>
-    <div class="wrapper two-column">
-        <div class="column">
-            <article class="red-message">
-                <h3>{{ carrera.message_title }}</h3>
-                <div>{{ carrera.message_body | safe }}</div>
-            </article>
-            <div class="rich-text">
-                {{ carrera.second_description | safe }}
+    <div class="wrapper">
+        <section class="two-column">
+            <div class="column">
+                <article class="red-message">
+                    <h3>{{ carrera.message_title }}</h3>
+                    <div>{{ carrera.message_body | safe }}</div>
+                </article>
+                <div class="rich-text">
+                    {{ carrera.second_description | safe }}
+                </div>
             </div>
-        </div>
-        <div class="column temario">
-            <h3>plan de estudios</h3>
-            <div class="two-column">
-                <ul class="column titles">
-                    {% for plan in list %}
-                    <li><a href="{% url 'carrera' plan.slug %}">{{ plan.title }}</a></li>
-                    {% endfor %}
-                </ul>
-                <section class="left-border column rich-text">
-                    <article>{{ single.description | safe }}</article>
-                </section>
+            <div class="column temario">
+                <h3>plan de estudios</h3>
+                <div class="two-column">
+                    <ul class="column titles">
+                        {% for plan in list %}
+                        <li>
+                            <a 
+                                class="{% if plan.active %}active{% endif %}"
+                                href="{% url 'carrera' plan.slug %}">{{ plan.title }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    <section class="left-border column rich-text">
+                        <article>{{ single.description | safe }}</article>
+                    </section>
+                </div>
             </div>
-        </div>
+        </section>
     </div>
 </main>
 {% endblock %}

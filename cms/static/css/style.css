@@ -271,10 +271,6 @@ body {
   font-family: 'Akzidenz Grotesk', helvetica, monaco, monospaced;
 }
 h1 {
-  margin: 0 auto 20px auto;
-  font-size: 2em;
-}
-h2 {
   font-size: 2.5em;
   font-weight: 800;
   letter-spacing: 0.2em;
@@ -284,6 +280,12 @@ h2 {
   margin: 0 auto 20px auto;
   padding: 20px 0 0 0;
 }
+h2 {
+  font-size: 1.2em;
+  font-weight: 800;
+  margin: 0 auto 20px auto;
+  text-transform: uppercase;
+}
 h3 {
   font-size: 1.1em;
   font-weight: 800;
@@ -292,17 +294,17 @@ h3 {
 }
 h4 {
   font-size: 1em;
-  font-weight: 800;
-  margin: 20px auto 20px auto;
-  text-transform: uppercase;
-}
-h5 {
-  font-size: 1em;
   font-weight: 600;
   margin: 0 auto 20px auto;
   text-transform: uppercase;
   width: 100%;
   text-align: left;
+}
+h5 {
+  font-size: 1em;
+  font-weight: 200;
+  margin: 0 auto 20px auto;
+  text-transform: uppercase;
 }
 p {
   margin: auto;
@@ -332,9 +334,7 @@ a {
   transition: color 0.2s ease;
   cursor: pointer;
 }
-a:hover {
-  color: #e54115;
-}
+a:hover,
 a.active {
   color: #e54115;
 }
@@ -363,33 +363,9 @@ main {
   padding: 20px 0 20px 0;
   margin: auto;
 }
-.nav-menu {
-  font-size: 0.5em;
-  letter-spacing: 0.15em;
-}
-.nav-menu ul {
-  height: 100%;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  -o-box-orient: vertical;
-  -webkit-flex-flow: column;
-  -ms-flex-flow: column;
-  flex-flow: column;
-  -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  -o-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-}
 .two-column {
   margin: 20px auto 0 auto;
+  width: 100%;
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
@@ -439,7 +415,7 @@ main {
 }
 .red-message {
   color: #e54115;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 20px auto;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -490,7 +466,8 @@ main {
   -ms-transition: color ease 0.2s;
   transition: color ease 0.2s;
 }
-.titles a:hover {
+.titles a:hover,
+.titles a.active {
   color: #e54115;
 }
 .gray-bg {
@@ -508,6 +485,9 @@ main {
 .rich-text strong {
   text-transform: uppercase;
 }
+.rich-text ul {
+  margin: 20px auto 20px auto;
+}
 .rich-text li {
   margin: 5px 0 5px 0;
   padding: 0 0 0 10px;
@@ -523,6 +503,9 @@ main {
   content: '\2219';
   position: absolute;
   left: 0;
+}
+.rich-text article > :first-child {
+  margin-top: 0;
 }
 .film-slider {
   height: auto;
@@ -837,6 +820,31 @@ header .nav-menu ul {
 }
 header img {
   width: auto;
+}
+.nav-menu {
+  font-size: 0.5em;
+  letter-spacing: 0.15em;
+}
+.nav-menu ul {
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
 }
 .big-header {
   width: 100%;

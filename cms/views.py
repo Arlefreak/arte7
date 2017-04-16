@@ -8,6 +8,10 @@ def carrera(request, slug=None):
     else:
         single = PlanDeEstudios.objects.all().first()
 
+    for item in list:
+        if item.slug == single.slug:
+            item.active = True
+
     context = {
         'list': list,
         'single': single
@@ -21,6 +25,10 @@ def cursos(request, curso_slug=None, temario_slug=None):
     else:
         single_curso = CursosTalleres.objects.all().first()
 
+    for item in list_cursos:
+        if item.slug == single_curso.slug:
+            item.active = True
+
     list_temarios = Temario.objects.filter(curso=single_curso)
     print(temario_slug)
     print(curso_slug)
@@ -28,6 +36,10 @@ def cursos(request, curso_slug=None, temario_slug=None):
         single_temario = get_object_or_404(Temario, curso=single_curso, slug=temario_slug)
     else:
         single_temario = Temario.objects.filter(curso=single_curso).first()
+
+    for item in list_temarios:
+        if item.slug == single_temario.slug:
+            item.active = True
 
     context = {
         'list_cursos': list_cursos,

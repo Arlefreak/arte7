@@ -1,7 +1,4 @@
 h1
-    margin 0 auto 20px auto
-    font-size 2.0em
-h2
     font-size 2.5em
     font-weight 800
     letter-spacing 0.2em
@@ -10,6 +7,11 @@ h2
     text-align center
     margin 0 auto 20px auto
     padding 20px 0 0 0
+h2
+    font-size 1.2em
+    font-weight 800
+    margin 0 auto 20px auto
+    text-transform uppercase
 h3
     font-size 1.1em
     font-weight 800
@@ -17,16 +19,16 @@ h3
     text-transform uppercase
 h4
     font-size 1.0em
-    font-weight 800
-    margin 20px auto 20px auto
-    text-transform uppercase
-h5
-    font-size 1.0em
     font-weight 600
     margin 0 auto 20px auto
     text-transform uppercase
     width 100%
     text-align left
+h5
+    font-size 1.0em
+    font-weight 200
+    margin 0 auto 20px auto
+    text-transform uppercase
 p
     margin auto
     font-size 1em
@@ -45,7 +47,6 @@ a
     transition color 0.2s ease
     cursor pointer
     &:hover
-        color $red
     &.active
         color $red
 main
@@ -71,17 +72,9 @@ main
     padding 20px 0 20px 0
     margin auto
 
-.nav-menu
-    font-size 0.5em
-    letter-spacing 0.15em
-    ul
-        height 100%
-        display flex
-        flex-flow column
-        justify-content space-between
-
 .two-column
     margin 20px auto 0 auto
+    width 100%
     display flex
     flex-flow row
     align-items flex-start
@@ -98,7 +91,7 @@ main
 
 .red-message
     color $red
-    margin 0 auto 10px auto
+    margin 0 auto 20px auto
     box-sizing border-box
     border 2px solid $red
     padding 10px
@@ -133,6 +126,7 @@ main
         color $black
         transition color ease 0.2s
         &:hover
+        &.active
             color $red
 
 .gray-bg
@@ -147,6 +141,8 @@ main
     margin 0px auto 0 auto
     strong
         text-transform uppercase
+    ul
+        margin 20px auto 20px auto
     li
         margin 5px 0 5px 0
         padding 0 0 0 10px
@@ -159,3 +155,5 @@ main
             content '\2219'
             position absolute
             left 0
+    article > :first-child
+        margin-top 0
