@@ -4,20 +4,18 @@
 {% endblock %}
 {% block content %}
 <main>
-    <div class="black-wrapper">
-        <h2>Cursos / talleres</h2>
-    </div>
     <div class="wrapper">
-        <div class="margin"></div>
-        <ul class="titles">
-            {% for curso in list_cursos %}
-            <li><a href="{% url 'cursos' curso.slug %}">{{ curso.title }}</a></li>
-            {% endfor %}
-        </ul>
-        <div class="margin"></div>
-        <div class="big">
-            {{ single_curso.description | safe }}
-        </div>
+        <article>
+            <h2>Cursos / talleres</h2>
+            <ul>
+                {% for curso in list_cursos %}
+                <li><a href="{% url 'cursos' curso.slug %}">{{ curso.title }}</a></li>
+                {% endfor %}
+            </ul>
+            <div class="big">
+                {{ single_curso.description | safe }}
+            </div>
+        </article>
     </div>
     <div class="wrapper two-column">
         <div class="column">

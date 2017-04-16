@@ -1,6 +1,8 @@
 from django.contrib import admin
 from solo.admin import SingletonModelAdmin
 from adminsortable.admin import SortableAdmin
+from embed_video.admin import AdminVideoMixin
+from embed_video.backends import VideoBackend
 from .models import *
 
 class ViewOnSiteMixin(object):
@@ -9,8 +11,14 @@ class ViewOnSiteMixin(object):
     view_on_site.allow_tags = True
     view_on_site.short_description = u"View on site"
 
+# class AdminVideoMixin2(object):
+#     def admin_video_thumbnail(self, obj):
+#         return u"<img src='%s' />" % VideoBackend(obj.video).thumbnail
+#     admin_video_thumbnail.allow_tags = True
+#     admin_video_thumbnail.short_description = u"Video"
+
 @admin.register(CarreraDeCine)
-class CarreraDeCineAdmin(SingletonModelAdmin):
+class CarreraDeCineAdmin(AdminVideoMixin, SingletonModelAdmin):
     pass
 
 @admin.register(PlanDeEstudios)
@@ -26,7 +34,7 @@ class PlanDeEstudiosAdmin(ViewOnSiteMixin, SortableAdmin):
     )
 
 @admin.register(CursosTalleres)
-class CursosTalleresAdmin(ViewOnSiteMixin, SortableAdmin):
+class CursosTalleresAdmin(AdminVideoMixin, ViewOnSiteMixin, SortableAdmin):
     list_display = (
         'order',
         'title',
