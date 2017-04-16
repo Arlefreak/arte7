@@ -1,33 +1,27 @@
 {% extends "base.html" %}
 {% load static %}
+{% load solo_tags %}
+{% load embed_video_tags %}
+{% block header %}
+{% get_solo 'cms.productora' as item %}
+{% include 'big_header.html' with header_video=item.video %}
+{% endblock %}
 {% block header-refs %}
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
 {% endblock %}
 {% block content %}
+{% get_solo 'cms.productora' as item %}
+{% get_solo 'cms.publicidad' as publicidad %}
 <main>
+    <div class="black-wrapper">
+        <h1>Productora</h1>
+    </div>
+    <div class="margin"></div>
     <div class="wrapper">
-        <article>
-            <h2>productora</h2>
-            <p class="big">
-                Arte 7 Producciones es una empresa constituida por profesionales activos en el medio con trabajo 
-                reconocido a nivel nacional e internacional. Nuestra propuesta como casa productora se fundamenta 
-                en brindar la adecuada interpretación visual y de contenido a cada proyecto.
-            </p>
-            <p class="big">
-                El fin de Arte 7 como casa productora es mantener el más alto nivel de resolución a las necesidades de 
-                cada caso específico. A través del desarrollo de las cualidades narrativas audiovisuales con un sentido 
-                lúdico y estético, en Arte 7 Producciones proponemos integrar las formas cinematográficas a las 
-                necesidades de comunicación.
-            </p>
-            <p class="big">
-                En el ámbito cinematográfico, nos hemos caracterizado por realizar películas de autor, es decir, 
-                películas en las que el director es el propio guionista y se involucra completamente en la producción 
-                de la obra. Consideramos que la posibilidad de seguir realizando películas radica en que éstas 
-                muestren un punto de vista particular e interesante, capaz de conmover a audiencias de todo el mundo, 
-                sin tener que depender únicamente de la taquilla nacional.
-            </p>
-        </article>
+        <div class="big">
+            {{ item.description | safe }}
+        </div>
     </div>
 </main>
 
@@ -35,7 +29,7 @@
 
 <main class="gray-bg">
     <div class="wrapper padding-top">
-        <h2>FILMOGRAFIA</h2>
+        <h1>FILMOGRAFIA</h1>
     </div>
     <div class="wrapper film-slider">
         {% for i in "xxxxxxxxxxxxxxx" %}
@@ -59,36 +53,17 @@
 
 <main>
     <div class="wrapper">
-        <h2>publicidad</h2>
-        <p class="big">
-            Arte 7 Producciones  Es una casa productora enfocada al servicio a clientes que buscan innovación y 
-            promoción en su imagen corporativa acompañada de nuevos contenidos globales para su negocio y 
-            espectadores.
-        </p>
-        <p class="big">
-            Nuestros servicios: Producción de videos corporativos, videos musicales, desarrollo de videos para 
-            web, comerciales para televisión, medios digitales, animación y todo lo relacionado con actualización o 
-            renovación de imagen corporativa audiovisual.
-        </p>
-        <p class="big">
-            Razón: Pasión por las cosas que se mueven y que se escuchan, nos gusta producir.
-        </p>
-        <p class="big">
-            Ideas: Novedosas ideas que nos llevan a un mejor trabajo creativo para la comunicación con ustedes y 
-            con sus clientes.
-        </p>
-        <p class="big">
-            Investigación: Aprendemos todo acerca de su producto, marca y compañía. Preguntamos y 
-            escuchamos para transmitir con claridad.
-        </p>
-        <p class="big">
-            Desarrollo creativo: Generamos el concepto y desarrollamos desde el guión hasta su entrega final.
-        </p>
-        <h2>demo</h2>
-        <div class="video">
+        <h1>publicidad</h1>
+        <div class="big">
+            {{ publicidad.description | safe }}
+        </div>
+        <h1>demo</h1>
+        <div class="video-wrapper">
+            {% video publicidad.video large %}
         </div>
     </div>
 </main>
+<div class="margin"></div>
 
 {% endblock %}
 

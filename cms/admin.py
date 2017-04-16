@@ -59,3 +59,11 @@ class TemarioAdmin(ViewOnSiteMixin, SortableAdmin):
         'curso',
     )
     list_filter = ('curso', )
+
+@admin.register(Productora)
+class ProductoraAdmin(AdminVideoMixin, SingletonModelAdmin):
+    pass
+
+@admin.register(Publicidad)
+class PublicidadAdmin(AdminVideoMixin, SingletonModelAdmin):
+    pass

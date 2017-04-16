@@ -80,6 +80,18 @@ class Temario(SortableMixin):
     def __str__(self):
         return self.title
 
+class Productora(SingletonModel):
+    video = EmbedVideoField()
+    description = RichTextField()
+
+class Publicidad(SingletonModel):
+    video = EmbedVideoField()
+    description = RichTextField()
+
+class Filmografia(models.Model):
+    title = models.CharField(max_length=140)
+    description = RichTextField()
+    video = EmbedVideoField()
 
 class OperasPrimas(SingletonModel):
     description = RichTextField()
@@ -92,19 +104,6 @@ class OperasPrimasEntries(models.Model):
 
 class Cortometrajes(models.Model):
     title = models.CharField(max_length=140)
-    description = RichTextField()
-    video = EmbedVideoField()
-
-class Productora(SingletonModel):
-    description = RichTextField()
-    second_description = RichTextField()
-
-class Filmografia(models.Model):
-    title = models.CharField(max_length=140)
-    description = RichTextField()
-    video = EmbedVideoField()
-
-class Publicidad(SingletonModel):
     description = RichTextField()
     video = EmbedVideoField()
 
