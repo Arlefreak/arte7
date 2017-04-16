@@ -37,12 +37,14 @@ ADMINS = (('Arlefreak', 'hi@arlefreak.com'),)
 INSTALLED_APPS = [
     'storages',
     'django.contrib.admin',
+    'django.contrib.sites',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
+    'adminsortable',
     'embed_video',
     'solo',
     'cms',
@@ -125,6 +127,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
@@ -132,6 +135,12 @@ USE_TZ = True
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Basic',
+        'toolbar_Basic': [
+            ['Bold', 'Italic', 'Underline', 'Format'],
+            ['BulletedList'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
     },
 }
 

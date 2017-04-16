@@ -1,77 +1,42 @@
 {% extends "base.html" %}
+{% load solo_tags %}
 {% block header %}
-{% include 'big_header.html' %}
+{% get_solo 'cms.CarreraDeCine' as carrera %}
+{% include 'big_header.html' with header_video=carrera.video %}
 {% endblock %}
 {% block content %}
+{% get_solo 'cms.CarreraDeCine' as carrera %}
 <main>
     <div class="black-wrapper">
         <h2>Carrera de cine</h2>
     </div>
     <div class="margin"></div>
     <div class="wrapper">
-        <p class="big">
-            La Carrera de Cine es nuestra propuesta académica desde hace 15 años. Mediante estudios
-            superiores y prácticas profesionales se contribuye en la consolidación educativa de nuestros
-            egresados. En Arte 7, dirigimos los esfuerzos académicos hacia el equilibrio entre estudiar y hacer el
-            cine posible bajo los estándares y requerimientos de la industria del cine mexicano. Encuentra un
-            espacio en donde pensar, discutir y hacer cine es posible.
-        </p>
+        <div class="big">
+            {{ carrera.description | safe }}
+        </div>
     </div>
     <div class="wrapper two-column">
         <div class="column">
-            <div class="red-message">
-                <h3>EXAMEN DE ADMISIÓN 21 DE ABRIL DE 2017, 11:00 AM</h3>
-                <p><strong>DURACIÓN</strong> 6 meses (84hrs.)</p>
-                <p><strong>HORARIO</strong>10:00 - 14:00 hrs / Sábados</p>
-                <p>CUPO LIMITADO</p>
-            </div>
+            <article class="red-message">
+                <h3>{{ carrera.message_title }}</h3>
+                <div>{{ carrera.message_body | safe }}</div>
+            </article>
             <div class="rich-text">
-                <h4>Admision</h4>
-                <p>
-                    <ul>
-                        <li>El examen de admisión consta de dos etapas.</li>
-                        <li>En caso de que algún aspirante falte a alguna de las mismas, será descalificado del proceso de admisión inmediatamente.</li>
-                        <li>La escuela tiene cuatro fechas para realizar el examen de admisión, queserán publicadas próximamente.</li>
-                    </ul>
-                </p>
-                <h4>Admision</h4>
-                <p>
-                    <ul>
-                        <li>El examen de admisión consta de dos etapas.</li>
-                        <li>En caso de que algún aspirante falte a alguna de las mismas, será descalificado del proceso de admisión inmediatamente.</li>
-                        <li>La escuela tiene cuatro fechas para realizar el examen de admisión, queserán publicadas próximamente.</li>
-                    </ul>
-                </p>
+                {{ carrera.second_description | safe }}
             </div>
         </div>
         <div class="column temario">
             <h3>plan de estudios</h3>
             <div class="two-column">
-                <ul class="column">
-                    <li><a href="">primer semestre</a></li>
-                    <li><a href="">segundo semestre</a></li>
-                    <li><a href="">tercer semestre</a></li>
-                    <li><a href="">cuarto semestre</a></li>
-                    <li><a href="">quinto semestre</a></li>
+                <ul class="column titles">
+                    {% for plan in list %}
+                    <li><a href="{% url 'carrera' plan.slug %}">{{ plan.title }}</a></li>
+                    {% endfor %}
                 </ul>
-                <ul class="column rich-text">
-                    <h5>OBJETIVO</h5>
-                    <p>
-                        Impulsar la formacion cinematografica del alumno a traves del aprendizaje
-                        de los fundamenos basicos de las
-                        princpales areas del cine.
-                    </p>
-                    <li>El cine</li>
-                    <li>El cine y el video (formatos y diferencias).</li>
-                    <li>Elementos del lenguaje (plano, toma, escena y secuencia)</li>
-                    <li>Movimiento de camara</li>
-                    <li>El eje.</li>
-                    <li>Composicion y encuadre</li>
-                    <li>Tiempo y espacio</li>
-                    <li>Ficcion o ducumental</li>
-                    <li>Genero cinematograficos</li>
-                    <li>Puesta en escena</li>
-                </ul>
+                <section class="left-border column rich-text">
+                    <article>{{ single.description | safe }}</article>
+                </section>
             </div>
         </div>
     </div>

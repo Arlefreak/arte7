@@ -314,11 +314,10 @@ p {
   line-height: 1.2em;
   letter-spacing: 0.05em;
 }
-p.big {
+.big {
   font-size: 1.25em;
   font-weight: 600;
   line-height: 1.4em;
-/* letter-spacing 0.2em */
 }
 strong {
   font-weight: 600;
@@ -355,6 +354,7 @@ main {
   max-width: 1500px;
   display: block;
   margin: auto;
+  min-width: 1024px;
 }
 .black-wrapper {
   color: #fff;
@@ -429,6 +429,7 @@ main {
   -webkit-flex-flow: column;
   -ms-flex-flow: column;
   flex-flow: column;
+  height: 100%;
 }
 .two-column .column:first-child {
   width: 40%;
@@ -459,29 +460,29 @@ main {
   box-sizing: border-box;
   padding: 20px;
 }
-.temario .column:last-of-type {
-  border-left: 1px solid #000;
-  padding: 0 0px 0 20px;
-}
 .temario h3 {
   width: 100%;
   text-align: left;
 }
-.temario ul:first-of-type {
+.left-border {
+  border-left: 1px solid #000;
+  padding: 0 0px 0 20px;
+}
+.titles {
   font-weight: 800;
   text-transform: uppercase;
   font-size: 1em;
 }
-.temario ul:first-of-type li {
+.titles li {
   margin: 10px 0 10px 0;
 }
-.temario ul:first-of-type li:first-child {
+.titles li:first-child {
   margin: 0px 0 10px 0;
 }
-.temario ul:first-of-type li:last-child {
+.titles li:last-child {
   margin: 10px 0 0 0;
 }
-.temario a {
+.titles a {
   color: #000;
   -webkit-transition: color ease 0.2s;
   -moz-transition: color ease 0.2s;
@@ -489,7 +490,7 @@ main {
   -ms-transition: color ease 0.2s;
   transition: color ease 0.2s;
 }
-.temario a:hover {
+.titles a:hover {
   color: #e54115;
 }
 .gray-bg {

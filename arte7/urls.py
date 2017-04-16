@@ -6,7 +6,12 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^$', views.carrera, name='carrera'),
-    url(r'^cursos/', views.cursos, name='cursos'),
+    url(r'^carrera/(?P<slug>[\w-]+)/$', views.carrera , name='carrera'),
+
+    url(r'^cursos/$', views.cursos, name='cursos'),
+    url(r'^cursos/(?P<curso_slug>[\w-]+)/$', views.cursos , name='cursos'),
+    url(r'^cursos/(?P<curso_slug>[\w-]+)/(?P<temario_slug>[\w-]+)/$', views.cursos , name='cursos'),
+
     url(r'^productora/', views.productora, name='productora'),
     url(r'^plantilla/', views.plantilla, name='plantilla'),
     url(r'^otras/', views.otras, name='otras'),

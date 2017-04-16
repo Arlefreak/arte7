@@ -1,77 +1,45 @@
 {% extends "base.html" %}
+{% block header %}
+{% include 'big_header.html' with header_video=single_curso.video %}
+{% endblock %}
 {% block content %}
 <main>
     <div class="wrapper">
         <article>
             <h2>Cursos / talleres</h2>
             <ul>
-                <li><a href="">workshop de realizacion cinematografica</a></li>
-                <li><a href="">workshop de realizacion cinematografica</a></li>
-                <li><a href="">workshop de realizacion cinematografica</a></li>
+                {% for curso in list_cursos %}
+                <li><a href="{% url 'cursos' curso.slug %}">{{ curso.title }}</a></li>
+                {% endfor %}
             </ul>
-            <p class="big">
-                Por medio de un programa teórico-práctico el alumno saldrá con un amplio  conocimiento de todos los 
-                departamentos y etapas que se requieren para la realización de un proyecto cinematográfico. Se busca 
-                que el alumno descubra su voz, universo y atmósferas cinematográficas; a partir de la enseñanza de 
-                ciertas herramientas y de una constante reflexión sobre el uso de las mismas.
-            </p>
-            <p class="big">
-                El Curso está diseñado para el público en general que gusta de ver cine y le interesa saber cómo 
-                hacerlo.
-            </p>
-
+            <div class="big">
+                {{ single_curso.description | safe }}
+            </div>
         </article>
     </div>
     <div class="wrapper two-column">
         <div class="column">
             <div class="red-message">
-                <h3>EXAMEN DE ADMISIÓN 21 DE ABRIL DE 2017, 11:00 AM</h3>
-                <p><strong>DURACIÓN</strong> 6 meses (84hrs.)</p>
-                <p><strong>HORARIO</strong>10:00 - 14:00 hrs / Sábados</p>
-                <p>CUPO LIMITADO</p>
+                <h3>{{ single_curso.message_title }}</h3>
+                <article>{{ single_curso.message_body | safe }}</article>
             </div>
             <div class="rich-text">
-                <h4>Propuesta academica</h4>
-                <p>
-                    Escribe, produce y dirige tu propio cortometraje y participa en los 
-                    cortometrajes en equipo. A través del análisis y la práctica, el Workshop 
-                    en realización cinematográfica introduce a los alumnos en la estética del 
-                    cine, estudiando las distintas etapas por las que pasa la realización de 
-                    una película.
-                </p>
+                {{ single_curso.second_description | safe }}
             </div>
         </div>
         <div class="column temario">
             <h3>Temario</h3>
             <div class="two-column">
-                <ul class="column">
-                    <li><a href="">Lenguaje cinematogrico</a></li>
-                    <li><a href="">analisis y critica cinematograica</a></li>
-                    <li><a href="">direccion</a></li>
-                    <li><a href="">guion</a></li>
-                    <li><a href="">fotografia</a></li>
-                    <li><a href="">sonido</a></li>
-                    <li><a href="">edicion</a></li>
-                    <li><a href="">produciion</a></li>
+                <ul class="column titles">
+                    {% for item in list_temarios %}
+                    <li><a href="{% url 'cursos' single_curso.slug item.slug %}">{{item.title}}</a></li>
+                    {% endfor %}
                 </ul>
-                <ul class="column rich-text">
-                    <h5>OBJETIVO</h5>
-                    <p>
-                        Impulsar la formacion cinematografica del alumno a traves del aprendizaje
-                        de los fundamenos basicos de las
-                        princpales areas del cine.
-                    </p>
-                    <li>El cine</li>
-                    <li>El cine y el video (formatos y diferencias).</li>
-                    <li>Elementos del lenguaje (plano, toma, escena y secuencia)</li>
-                    <li>Movimiento de camara</li>
-                    <li>El eje.</li>
-                    <li>Composicion y encuadre</li>
-                    <li>Tiempo y espacio</li>
-                    <li>Ficcion o ducumental</li>
-                    <li>Genero cinematograficos</li>
-                    <li>Puesta en escena</li>
-                </ul>
+                <section class="left-border column rich-text">
+                    <article>
+                        {{ single_temario.description | safe }}
+                    </article>
+                </section>
             </div>
         </div>
     </div>
