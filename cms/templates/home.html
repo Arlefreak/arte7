@@ -1,14 +1,28 @@
 {% extends "base.html" %}
 {% load solo_tags %}
+{% load static %}
 {% block header %}
 {% get_solo 'cms.CarreraDeCine' as carrera %}
 {% include 'big_header.html' with header_video=carrera.video %}
 {% endblock %}
+
+{% block header-refs %}
+<link rel="stylesheet" type="text/css" href="{% static "lib/css/slick.min.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "lib/css/lity.min.css" %}"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+{% endblock %}
+
 {% block content %}
 {% get_solo 'cms.CarreraDeCine' as carrera %}
 <main class="black-background">
     <div class="black-wrapper">
-        <h1>DONDE HACEMOS EL CINE POSIBLE</h1>
+        <ul class="titles-slide">
+            {% for item in list_frases %}
+            <li>
+                <h1>{{ item.title }}</h1>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
     <div class="margin"></div>
     <div class="wrapper">
@@ -38,4 +52,19 @@
         </section>
     </div>
 </main>
+{% endblock %}
+
+{% block footer-refs %}
+<script type="text/javascript" src="{% static "lib/js/slick.min.js" %}"></script>
+<script>
+    $('.titles-slide').slick({
+        dots: false,
+        infinite: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear',
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
+</script>
 {% endblock %}

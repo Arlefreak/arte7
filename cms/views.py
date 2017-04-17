@@ -2,7 +2,10 @@ from django.shortcuts import render, render_to_response, get_object_or_404
 from .models import *
 
 def home(request):
-    context = {}
+    list_frases = FrasesHome.objects.all()
+    context = {
+        'list_frases': list_frases,
+    }
     return render(request, 'home.html', context)
 
 def carrera(request, slug=None):

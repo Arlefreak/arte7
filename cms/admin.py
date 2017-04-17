@@ -140,3 +140,16 @@ class FilmografiaAdmin(AdminImageMixin, ViewOnSiteMixin, SortableAdmin):
         'personal_type',
     )
     list_filter = ('personal_type', )
+
+@admin.register(FrasesHome)
+class FrasesHome(ViewOnSiteMixin, SortableAdmin):
+    save_as = True
+    list_display = (
+        'order',
+        'title',
+        'view_on_site',
+    )
+    list_display_links = (
+        'order',
+        'title',
+    )

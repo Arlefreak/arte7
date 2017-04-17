@@ -155,7 +155,7 @@ class Filmografia(SortableMixin):
         return self.title
 
 
-class Personal(models.Model):
+class Personal(SortableMixin):
     order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
     image = models.ImageField(upload_to=upload_to)
     name = models.CharField(max_length=140)
@@ -164,7 +164,6 @@ class Personal(models.Model):
     role = models.CharField(max_length=140)
     description = RichTextField()
     url = models.URLField(blank=True, null=True)
-
     def save(self, *args, **kwargs):
         self.slug = defaultfilters.slugify(self.name)
         super(Personal, self).save(*args, **kwargs)
@@ -177,3 +176,18 @@ class Personal(models.Model):
     def __str__(self):
         return self.name
 
+class FrasesHome(SortableMixin):
+    title = models.CharField(max_length=140)
+    slug  = models.CharField(max_length=200, editable=False)
+    order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+    def save(self, *args, **kwargs):
+        self.slug = defaultfilters.slugify(self.title)
+        super(FrasesHome, self).save(*args, **kwargs)
+    def get_absolute_url(self):
+        return reverse('home')
+    class Meta:
+        verbose_name = 'Frase del home'
+        verbose_name_plural = 'Frases del home'
+        ordering = ['order']
+    def __str__(self):
+        return self.title 
