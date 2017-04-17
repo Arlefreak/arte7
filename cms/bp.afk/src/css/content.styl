@@ -5,8 +5,7 @@ h1
     text-transform uppercase
     width 100%
     text-align center
-    margin 0 auto 20px auto
-    padding 20px 0 0 0
+    margin 0 auto 40px auto
 h2
     font-size 1.2em
     font-weight 800
@@ -34,9 +33,9 @@ p
     font-size 1em
     hyphens auto
     line-height 1.2em
-    letter-spacing 0.05em
+    letter-spacing 0.02em
 .big
-    font-size 1.25em
+    font-size 1.5em
     font-weight 600
     line-height 1.4em
 strong
@@ -50,20 +49,22 @@ a
     &.active
         color $red
 main
-    background $white
+    background $colorBg
     color $black
     width 100%
     box-sizing border-box
 
 .padding-top
-    padding 20px 0 0 0
+    padding-top 40px
+.padding-bottom
+    padding-bottom 40px
 
 .wrapper
     width 80%
-    max-width 1500px
+    max-width 1024px
     display block
     margin auto
-    min-width 1024px
+    min-width 780px
 
 .black-wrapper
     color $white
@@ -73,7 +74,7 @@ main
     margin auto
 
 .two-column
-    margin 20px auto 0 auto
+    margin 0 auto 0 auto
     width 100%
     display flex
     flex-flow row
@@ -129,16 +130,27 @@ main
         &.active
             color $red
 
+.nav-menu
+    font-size 0.6em
+    letter-spacing 0.25em
+    ul
+        height 100%
+        display flex
+        flex-flow column
+        justify-content space-between
+
 .gray-bg
     background-color $gray2
 .margin
     width 100%
     display block
     padding 20px 0 20px 0
-    background-color $white
+    background-color transparent
 
 .rich-text
     margin 0px auto 0 auto
+    a
+        color $red
     strong
         text-transform uppercase
     ul
@@ -146,6 +158,7 @@ main
     li
         margin 5px 0 5px 0
         padding 0 0 0 10px
+        line-height 1.25em
         position relative
         &:first-child
             margin 0 0 5px 0

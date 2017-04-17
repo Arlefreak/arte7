@@ -1,0 +1,35 @@
+.rich-text
+    margin 0px auto 0 auto
+    a
+        color $red
+    strong
+        text-transform uppercase
+    ul
+        margin 20px auto 20px auto
+    li
+        margin 5px 0 5px 0
+        padding 0 0 0 10px
+        line-height 1.25em
+        position relative
+        &:first-child
+            margin 0 0 5px 0
+        &:last-child
+            margin 5px 0 0 0
+        &:before 
+            content '\2219'
+            position absolute
+            left 0
+    article > :first-child
+        margin-top 0
+    h3
+        font-size 1.0em
+        font-weight 600
+        margin 0 auto 20px auto
+        text-transform uppercase
+        width 100%
+        text-align left
+    h4
+        font-size 1.0em
+        font-weight 200
+        margin 0 auto 20px auto
+        text-transform uppercase

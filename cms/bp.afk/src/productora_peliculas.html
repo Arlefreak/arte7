@@ -27,9 +27,9 @@
 
 <div class="margin"></div>
 
-<main class="gray-bg">
-    <div class="wrapper padding-top">
-        <h1>FILMOGRAFIA</h1>
+<main class="gray-bg padding-top padding-bottom">
+    <div class="wrapper">
+        <h1>FILMOGRAFÍA</h1>
     </div>
     <div class="wrapper film-slider">
         {% for i in "xxxxxxxxxxxxxxx" %}
@@ -50,14 +50,15 @@
         {% endfor %}
     </div>
 </main>
-
+<div class="margin"></div>
 <main>
     <div class="wrapper">
         <h1>publicidad</h1>
         <div class="big">
             {{ publicidad.description | safe }}
         </div>
-        <h1>demo</h1>
+        <div class="margin"></div>
+        <h1>demo real</h1>
         <div class="video-wrapper">
             {% video publicidad.video large %}
         </div>

@@ -267,7 +267,7 @@ body {
   margin: 0;
   padding: 0;
   color: #fff;
-  background: #000;
+  background: #f2f2f2;
   font-family: 'Akzidenz Grotesk', helvetica, monaco, monospaced;
 }
 h1 {
@@ -277,8 +277,7 @@ h1 {
   text-transform: uppercase;
   width: 100%;
   text-align: center;
-  margin: 0 auto 20px auto;
-  padding: 20px 0 0 0;
+  margin: 0 auto 40px auto;
 }
 h2 {
   font-size: 1.2em;
@@ -314,10 +313,10 @@ p {
   -ms-hyphens: auto;
   hyphens: auto;
   line-height: 1.2em;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
 }
 .big {
-  font-size: 1.25em;
+  font-size: 1.5em;
   font-weight: 600;
   line-height: 1.4em;
 }
@@ -339,7 +338,7 @@ a.active {
   color: #e54115;
 }
 main {
-  background: #fff;
+  background: #f2f2f2;
   color: #000;
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -347,14 +346,17 @@ main {
   box-sizing: border-box;
 }
 .padding-top {
-  padding: 20px 0 0 0;
+  padding-top: 40px;
+}
+.padding-bottom {
+  padding-bottom: 40px;
 }
 .wrapper {
   width: 80%;
-  max-width: 1500px;
+  max-width: 1024px;
   display: block;
   margin: auto;
-  min-width: 1024px;
+  min-width: 780px;
 }
 .black-wrapper {
   color: #fff;
@@ -364,7 +366,7 @@ main {
   margin: auto;
 }
 .two-column {
-  margin: 20px auto 0 auto;
+  margin: 0 auto 0 auto;
   width: 100%;
   display: -webkit-box;
   display: -moz-box;
@@ -470,6 +472,31 @@ main {
 .titles a.active {
   color: #e54115;
 }
+.nav-menu {
+  font-size: 0.6em;
+  letter-spacing: 0.25em;
+}
+.nav-menu ul {
+  height: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
 .gray-bg {
   background-color: #e3e3e3;
 }
@@ -477,10 +504,13 @@ main {
   width: 100%;
   display: block;
   padding: 20px 0 20px 0;
-  background-color: #fff;
+  background-color: transparent;
 }
 .rich-text {
   margin: 0px auto 0 auto;
+}
+.rich-text a {
+  color: #e54115;
 }
 .rich-text strong {
   text-transform: uppercase;
@@ -491,6 +521,7 @@ main {
 .rich-text li {
   margin: 5px 0 5px 0;
   padding: 0 0 0 10px;
+  line-height: 1.25em;
   position: relative;
 }
 .rich-text li:first-child {
@@ -660,6 +691,25 @@ footer .wrapper:last-child {
 }
 footer .wrapper span:first-child {
   font-size: 0.5em;
+  letter-spacing: 0.3em;
+}
+footer .wrapper .canon {
+  margin: 0 0 0 90px;
+}
+footer .wrapper .canon span {
+  width: 100%;
+  text-align: left;
+}
+footer .wrapper .canon img {
+  width: 65%;
+}
+footer .wrapper .copy {
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+  -ms-flex-item-align: end;
+  opacity: 0.7;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+  filter: alpha(opacity=70);
 }
 footer .wrapper div {
   display: -webkit-box;
@@ -677,6 +727,12 @@ footer .wrapper div {
 }
 footer .wrapper div span {
   margin: 0 auto 10px auto;
+}
+footer .footer-info {
+  letter-spacing: 0.3em;
+}
+footer .footer-info a {
+  text-transform: lowercase;
 }
 footer .nav-menu {
   display: -webkit-box;
@@ -705,6 +761,9 @@ footer .nav-menu:last-child {
   -ms-flex-pack: end;
   -webkit-justify-content: flex-end;
   justify-content: flex-end;
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
+  -ms-flex-item-align: start;
 }
 footer .nav-menu ul li {
   margin: 5px 0 5px 0;
@@ -745,12 +804,15 @@ footer .social ul {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-  -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  -o-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
+  -webkit-box-pack: end;
+  -moz-box-pack: end;
+  -o-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+footer .social ul li {
+  margin: 0 10px 0 0;
 }
 footer span {
   font-size: 0.7em;
@@ -837,31 +899,6 @@ header .nav-menu ul {
 header img {
   width: auto;
 }
-.nav-menu {
-  font-size: 0.5em;
-  letter-spacing: 0.15em;
-}
-.nav-menu ul {
-  height: 100%;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  -o-box-orient: vertical;
-  -webkit-flex-flow: column;
-  -ms-flex-flow: column;
-  flex-flow: column;
-  -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  -o-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-}
 .big-header {
   width: 100%;
   padding-bottom: 56.25%;
@@ -885,10 +922,61 @@ header img {
 }
 .big-header iframe {
   position: absolute;
-  top: 0;
+  top: 50%;
+  left: 50%;
+  width: 75%;
+  height: 75%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.rich-text {
+  margin: 0px auto 0 auto;
+}
+.rich-text a {
+  color: #e54115;
+}
+.rich-text strong {
+  text-transform: uppercase;
+}
+.rich-text ul {
+  margin: 20px auto 20px auto;
+}
+.rich-text li {
+  margin: 5px 0 5px 0;
+  padding: 0 0 0 10px;
+  line-height: 1.25em;
+  position: relative;
+}
+.rich-text li:first-child {
+  margin: 0 0 5px 0;
+}
+.rich-text li:last-child {
+  margin: 5px 0 0 0;
+}
+.rich-text li:before {
+  content: '\2219';
+  position: absolute;
   left: 0;
+}
+.rich-text article > :first-child {
+  margin-top: 0;
+}
+.rich-text h3 {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0 auto 20px auto;
+  text-transform: uppercase;
   width: 100%;
-  height: 100%;
+  text-align: left;
+}
+.rich-text h4 {
+  font-size: 1em;
+  font-weight: 200;
+  margin: 0 auto 20px auto;
+  text-transform: uppercase;
 }
 .video-grid-margin {
   height: auto;
@@ -960,6 +1048,7 @@ header img {
 .video-grid {
   height: auto;
   width: 100%;
+  max-width: none;
   padding: 20px 0 0 0;
 }
 .video-grid article {
@@ -1027,4 +1116,17 @@ header img {
 }
 .video-grid .info h3 {
   margin: 0;
+}
+.video-grid .play-button {
+  position: absolute;
+  width: 50px;
+  height: auto;
+  display: block;
+  right: 10%;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
 }

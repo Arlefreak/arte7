@@ -80,6 +80,48 @@ class Temario(SortableMixin):
     def __str__(self):
         return self.title
 
+class OperasPrimas(SingletonModel):
+    video = EmbedVideoField()
+    description = RichTextField()
+    def __str__(self):
+        return 'Operas Primas'
+
+class OperasPrimasEntries(SortableMixin):
+    order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+    video = EmbedVideoField()
+    title = models.CharField(max_length=140)
+    slug  = models.CharField(max_length=200, editable=False)
+    description = RichTextField()
+    def save(self, *args, **kwargs):
+        self.slug = defaultfilters.slugify(self.title)
+        super(OperasPrimasEntries, self).save(*args, **kwargs)
+    def get_absolute_url(self):
+        return reverse('cortos')
+    class Meta:
+        verbose_name = 'Opera Prima Video'
+        verbose_name_plural = 'Operas Primas Videos'
+        ordering = ['order']
+    def __str__(self):
+        return self.title
+
+class Cortometrajes(SortableMixin):
+    order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+    video = EmbedVideoField()
+    title = models.CharField(max_length=140)
+    slug  = models.CharField(max_length=200, editable=False)
+    description = RichTextField()
+    def save(self, *args, **kwargs):
+        self.slug = defaultfilters.slugify(self.title)
+        super(Cortometrajes, self).save(*args, **kwargs)
+    def get_absolute_url(self):
+        return reverse('cortos')
+    class Meta:
+        verbose_name = 'Cortometraje'
+        verbose_name_plural = 'Cortometrajes'
+        ordering = ['order']
+    def __str__(self):
+        return self.title
+
 class Productora(SingletonModel):
     video = EmbedVideoField()
     description = RichTextField()
@@ -89,20 +131,6 @@ class Publicidad(SingletonModel):
     description = RichTextField()
 
 class Filmografia(models.Model):
-    title = models.CharField(max_length=140)
-    description = RichTextField()
-    video = EmbedVideoField()
-
-class OperasPrimas(SingletonModel):
-    description = RichTextField()
-    second_description = RichTextField()
-
-class OperasPrimasEntries(models.Model):
-    title = models.CharField(max_length=140)
-    description = RichTextField()
-    video = EmbedVideoField()
-
-class Cortometrajes(models.Model):
     title = models.CharField(max_length=140)
     description = RichTextField()
     video = EmbedVideoField()

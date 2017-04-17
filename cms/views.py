@@ -49,6 +49,15 @@ def cursos(request, curso_slug=None, temario_slug=None):
     }
     return render(request, 'cursos_talleres.html', context)
 
+def cortos(request):
+    list = OperasPrimasEntries.objects.all()
+    list_cortos = Cortometrajes.objects.all()
+    context = {
+        'list': list,
+        'list_cortos': list_cortos,
+    }
+    return render(request, 'operas_primas_cortometrajes.html', context)
+
 def productora(request):
     context = {}
     return render(request, 'productora_peliculas.html', context)
@@ -60,11 +69,6 @@ def plantilla(request):
 def otras(request):
     context = {}
     return render(request, 'otras_escuelas.html', context)
-
-def cortos(request):
-    context = {}
-    return render(request, 'operas_primas_cortometrajes.html', context)
-
 
 def acerca_de(request):
     context = {}

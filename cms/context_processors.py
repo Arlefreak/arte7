@@ -7,10 +7,10 @@ def menu(request):
     menu = {"menu": [
         {'name': 'carrera de cine', 'url': reverse('carrera')},
         {'name': 'cursos / talleres', 'url': reverse('cursos')},
-        {'name': 'productora / peliculas', 'url': reverse('productora')},
+        {'name': 'Óperas primas / cortometrajes', 'url': reverse('cortos')},
+        {'name': 'productora / PELÍCULAS', 'url': reverse('productora')},
         {'name': 'plantilla docente', 'url': reverse('plantilla')},
         {'name': 'otras escuelas', 'url': reverse('otras')},
-        {'name': 'operas primas', 'url': reverse('cortos')},
     ]}
     for item in menu['menu']:
         if request.path == item['url']:

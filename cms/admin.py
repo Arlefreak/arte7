@@ -67,3 +67,33 @@ class ProductoraAdmin(AdminVideoMixin, SingletonModelAdmin):
 @admin.register(Publicidad)
 class PublicidadAdmin(AdminVideoMixin, SingletonModelAdmin):
     pass
+
+@admin.register(OperasPrimas)
+class OperasPrimasAdmin(AdminVideoMixin, SingletonModelAdmin):
+    pass
+
+@admin.register(OperasPrimasEntries)
+class OperasPrimasEntriesAdmin(ViewOnSiteMixin, AdminVideoMixin, SortableAdmin):
+    save_as = True
+    list_display = (
+        'order',
+        'title',
+        'view_on_site',
+    )
+    list_display_links = (
+        'order',
+        'title',
+    )
+
+@admin.register(Cortometrajes)
+class CortometrajesAdmin(ViewOnSiteMixin, AdminVideoMixin, SortableAdmin):
+    save_as = True
+    list_display = (
+        'order',
+        'title',
+        'view_on_site',
+    )
+    list_display_links = (
+        'order',
+        'title',
+    )
