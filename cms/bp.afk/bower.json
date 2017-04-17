@@ -22,8 +22,9 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
+  "dependencies": {
     "jquery": "~2.1.4",
-    "html5shiv": "~3.7.3"
+    "lity": "^2.2.2",
+    "slick-carousel": "^1.6.0"
   }
 }

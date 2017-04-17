@@ -7,7 +7,8 @@
 {% include 'big_header.html' with header_video=item.video %}
 {% endblock %}
 {% block header-refs %}
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+<link rel="stylesheet" type="text/css" href="{% static "lib/css/slick.min.css" %}"/>
+<link rel="stylesheet" type="text/css" href="{% static "lib/css/lity.min.css" %}"/>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
 {% endblock %}
 {% block content %}
@@ -32,7 +33,7 @@
             <div class="cover"
                 style="background-image: url('{{ video.thumbnail }}'"
                 >
-                <a href="">
+                <a data-lity href="{{ video.url }}">
                     <img class="play-button" src="{% static "img/play.svg" %}" alt="play">
                 </a>
             </div>
@@ -58,7 +59,7 @@
         {% for item in list_cortos %}
         {% video item.video as video %}
         <article>
-            <a href="">
+            <a data-lity href="{{ video.url }}">
                 <div
                     class="cover"
                     style="background-image: url('{{ video.thumbnail }}'"
@@ -80,7 +81,8 @@
 {% endblock %}
 
 {% block footer-refs %}
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+<script type="text/javascript" src="{% static "lib/js/slick.min.js" %}"></script>
+<script type="text/javascript" src="{% static "lib/js/lity.min.min.js" %}"></script>
 <script>
     $('.video-grid').slick({
         infinite: true,
