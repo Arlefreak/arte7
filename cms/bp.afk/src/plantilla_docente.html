@@ -1,2 +1,41 @@
 {% extends "base.html" %}
-{% block title %}<h2>Plantilla</h1>{% endblock %}
+{% block content %}
+<main>
+    <div class="margin"></div>
+    <h1>Directiva</h1>
+    <div class="wrapper personal-grid">
+        {% for item in list_directiva %}
+        <article>
+            <img src="{{ item.image.url }}" alt="{{ item.nam }}"/>
+            <div class="margin"></div>
+            <h3>{{ item.name }}</h3>
+            <h4>{{ item.role }}</h4>
+            <div class="rich-text">
+                {{ item.description | safe }}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    <h1>Plantilla docente</h1>
+    <div class="wrapper personal-grid">
+        {% for item in list_docente %}
+        <article>
+            <img src="{{ item.image.url }}" alt="{{ item.name }}"/>
+            <div class="margin"></div>
+            <h3>{{ item.name }}</h3>
+            <h4>{{ item.role }}</h4>
+            <div class="rich-text">
+                {{ item.description | safe }}
+                {% if item.url %}
+                <div class="margin"></div>
+                <u>Filmografía</u>
+                <br>
+                <br>
+                <a href="{{ item.url }}">{{ item.url }}</a>
+                {% endif %}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

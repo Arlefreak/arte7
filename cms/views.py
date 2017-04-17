@@ -66,7 +66,12 @@ def productora(request):
     return render(request, 'productora_peliculas.html', context)
 
 def plantilla(request):
-    context = {}
+    list_directiva = Personal.objects.filter(personal_type='DIR')
+    list_docente = Personal.objects.filter(personal_type='DOC')
+    context = {
+        'list_directiva': list_directiva,
+        'list_docente': list_docente,
+    }
     return render(request, 'plantilla_docente.html', context)
 
 def otras(request):

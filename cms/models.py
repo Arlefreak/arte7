@@ -8,6 +8,11 @@ from embed_video.fields import EmbedVideoField
 from django.core.urlresolvers import reverse
 import os
 
+PERSONAL_CHOICES = (
+    ('DIR', 'Directiva'),
+    ('DOC', 'Plantilla Docente'),
+)
+
 def upload_to(instance, filename):
     from django.utils.timezone import now
     filename_base, filename_ext = os.path.splitext(filename)
@@ -151,9 +156,24 @@ class Filmografia(SortableMixin):
 
 
 class Personal(models.Model):
-    name = models.CharField(max_length=140)
+    order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
     image = models.ImageField(upload_to=upload_to)
+    name = models.CharField(max_length=140)
+    slug  = models.CharField(max_length=200, editable=False)
+    personal_type = models.CharField(max_length=3, choices=PERSONAL_CHOICES, default='DOC')
     role = models.CharField(max_length=140)
     description = RichTextField()
-    url = models.URLField()
+    url = models.URLField(blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        self.slug = defaultfilters.slugify(self.name)
+        super(Personal, self).save(*args, **kwargs)
+    def get_absolute_url(self):
+        return reverse('plantilla')
+    class Meta:
+        verbose_name = 'Personal'
+        verbose_name_plural = 'Personal'
+        ordering = ['order']
+    def __str__(self):
+        return self.name
 

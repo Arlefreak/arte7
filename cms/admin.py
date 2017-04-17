@@ -118,3 +118,25 @@ class FilmografiaAdmin(AdminImageMixin, ViewOnSiteMixin, SortableAdmin):
         'title',
         'admin_image',
     )
+
+@admin.register(Personal)
+class FilmografiaAdmin(AdminImageMixin, ViewOnSiteMixin, SortableAdmin):
+    save_as = True
+    list_display = (
+        'order',
+        'name',
+        'personal_type',
+        'role',
+        'admin_image',
+        'view_on_site',
+    )
+    list_display_links = (
+        'order',
+        'name',
+        'role',
+        'admin_image',
+    )
+    list_editable = (
+        'personal_type',
+    )
+    list_filter = ('personal_type', )
