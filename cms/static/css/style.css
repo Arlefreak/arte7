@@ -1037,6 +1037,7 @@ header img {
 .video-grid-margin .info {
   font-size: 0.8em;
   text-align: center;
+  line-height: 1.3em;
 }
 .video-grid-margin .info h3 {
   margin: 0;
@@ -1068,6 +1069,7 @@ header img {
 .video-grid .info {
   width: 100%;
   font-size: 0.7em;
+  line-height: 1.3em;
   position: absolute;
   bottom: 0%;
   height: 30%;
