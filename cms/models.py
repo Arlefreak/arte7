@@ -6,6 +6,7 @@ from adminsortable.fields import SortableForeignKey
 from ckeditor.fields import RichTextField
 from embed_video.fields import EmbedVideoField
 from django.core.urlresolvers import reverse
+import os
 
 def upload_to(instance, filename):
     from django.utils.timezone import now
@@ -130,14 +131,28 @@ class Publicidad(SingletonModel):
     video = EmbedVideoField()
     description = RichTextField()
 
-class Filmografia(models.Model):
+class Filmografia(SortableMixin):
+    order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+    image = models.ImageField(upload_to=upload_to)
     title = models.CharField(max_length=140)
+    slug  = models.CharField(max_length=200, editable=False)
     description = RichTextField()
-    video = EmbedVideoField()
+    def save(self, *args, **kwargs):
+        self.slug = defaultfilters.slugify(self.title)
+        super(Filmografia, self).save(*args, **kwargs)
+    def get_absolute_url(self):
+        return reverse('productora')
+    class Meta:
+        verbose_name = 'Entrada de filmografia'
+        verbose_name_plural = 'Entradas de filmografia'
+        ordering = ['order']
+    def __str__(self):
+        return self.title
+
 
 class Personal(models.Model):
     name = models.CharField(max_length=140)
-    avatart = models.ImageField(upload_to=upload_to)
+    image = models.ImageField(upload_to=upload_to)
     role = models.CharField(max_length=140)
     description = RichTextField()
     url = models.URLField()

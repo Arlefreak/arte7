@@ -11,6 +11,12 @@ class ViewOnSiteMixin(object):
     view_on_site.allow_tags = True
     view_on_site.short_description = u"View on site"
 
+class AdminImageMixin(object):
+    def admin_image(self, obj):
+        return u"<img src='%s' style='height: 100px; width: auto; display: block'/>" % obj.image.url
+    admin_image.allow_tags = True
+    admin_image.short_description = u"Preview"
+
 # class AdminVideoMixin2(object):
 #     def admin_video_thumbnail(self, obj):
 #         return u"<img src='%s' />" % VideoBackend(obj.video).thumbnail
@@ -60,14 +66,6 @@ class TemarioAdmin(ViewOnSiteMixin, SortableAdmin):
     )
     list_filter = ('curso', )
 
-@admin.register(Productora)
-class ProductoraAdmin(AdminVideoMixin, SingletonModelAdmin):
-    pass
-
-@admin.register(Publicidad)
-class PublicidadAdmin(AdminVideoMixin, SingletonModelAdmin):
-    pass
-
 @admin.register(OperasPrimas)
 class OperasPrimasAdmin(AdminVideoMixin, SingletonModelAdmin):
     pass
@@ -96,4 +94,27 @@ class CortometrajesAdmin(ViewOnSiteMixin, AdminVideoMixin, SortableAdmin):
     list_display_links = (
         'order',
         'title',
+    )
+
+@admin.register(Productora)
+class ProductoraAdmin(AdminVideoMixin, SingletonModelAdmin):
+    pass
+
+@admin.register(Publicidad)
+class PublicidadAdmin(AdminVideoMixin, SingletonModelAdmin):
+    pass
+
+@admin.register(Filmografia)
+class FilmografiaAdmin(AdminImageMixin, ViewOnSiteMixin, SortableAdmin):
+    save_as = True
+    list_display = (
+        'order',
+        'title',
+        'admin_image',
+        'view_on_site',
+    )
+    list_display_links = (
+        'order',
+        'title',
+        'admin_image',
     )

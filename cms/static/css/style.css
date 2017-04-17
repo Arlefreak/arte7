@@ -266,6 +266,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  min-width: 1024px;
   color: #fff;
   background: #f2f2f2;
   font-family: 'Akzidenz Grotesk', helvetica, monaco, monospaced;
@@ -358,7 +359,10 @@ main {
   color: #fff;
   background: #000;
   width: 100%;
-  padding: 20px 0 20px 0;
+  padding: 0 0 20px 0;
+  margin: auto;
+}
+.black-wrapper h1 {
   margin: auto;
 }
 .two-column {
@@ -502,42 +506,10 @@ main {
   padding: 20px 0 20px 0;
   background-color: transparent;
 }
-.rich-text {
-  margin: 0px auto 0 auto;
-}
-.rich-text a {
-  color: #e54115;
-}
-.rich-text strong {
-  text-transform: uppercase;
-}
-.rich-text ul {
-  margin: 20px auto 20px auto;
-}
-.rich-text li {
-  margin: 5px 0 5px 0;
-  padding: 0 0 0 10px;
-  line-height: 1.25em;
-  position: relative;
-}
-.rich-text li:first-child {
-  margin: 0 0 5px 0;
-}
-.rich-text li:last-child {
-  margin: 5px 0 0 0;
-}
-.rich-text li:before {
-  content: '\2219';
-  position: absolute;
-  left: 0;
-}
-.rich-text article > :first-child {
-  margin-top: 0;
-}
 .video-wrapper {
   width: 100%;
   padding-bottom: 56.25%;
-  padding-top: 30px;
+  padding-top: 25px;
   height: 0;
   position: relative;
   overflow: hidden;
@@ -554,6 +526,7 @@ main {
   height: auto;
   width: 100%;
   padding: 20px;
+  max-width: none;
 }
 .film-slider article {
   width: 33.333%;
@@ -893,16 +866,13 @@ header .nav-menu ul {
   align-items: flex-end;
 }
 header img {
-  width: auto;
+  width: aut;
 }
 .big-header {
-  width: 100%;
-  padding-bottom: 56.25%;
-  padding-top: 30px;
-  height: 0;
-  position: relative;
-  overflow: hidden;
+  height: auto;
+  width: auto;
   display: block;
+  position: relative;
 }
 .big-header .wrapper {
   height: 80px;
@@ -916,19 +886,13 @@ header img {
   transform: translate(-50%, -50%);
   z-index: 1000;
 }
-.big-header iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.big-header .header-video-wrapper {
   width: 75%;
-  height: 75%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+  max-width: 768px;
+  margin: auto;
 }
 .rich-text {
+  width: 100%;
   margin: 0px auto 0 auto;
 }
 .rich-text a {

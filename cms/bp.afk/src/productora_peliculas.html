@@ -32,20 +32,17 @@
         <h1>FILMOGRAFÍA</h1>
     </div>
     <div class="wrapper film-slider">
-        {% for i in "xxxxxxxxxxxxxxx" %}
+        {% for item in list %}
         <article>
-            <a href="">
-                <div class="cover">
-                    <img src="http://placehold.it/350x600" alt="poster">
+            <div class="cover">
+                <img src="{{ item.image.url }}" alt="poster">
+            </div>
+            <div class="info">
+                <h3>{{ item.title }}</h3>
+                <div class="rich-text">
+                    {{ item.description | safe }}
                 </div>
-                <div class="info">
-                    <h3>DESCONSUELO</h3>
-                    <div>
-                        <p>(2014)</p>
-                        <p>Generacion 2011-2014</p>
-                    </div>
-                </div>
-            </a>
+            </div>
         </article>
         {% endfor %}
     </div>

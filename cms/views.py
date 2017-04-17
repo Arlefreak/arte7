@@ -59,7 +59,10 @@ def cortos(request):
     return render(request, 'operas_primas_cortometrajes.html', context)
 
 def productora(request):
-    context = {}
+    list = Filmografia.objects.all()
+    context = {
+        'list': list,
+    }
     return render(request, 'productora_peliculas.html', context)
 
 def plantilla(request):
