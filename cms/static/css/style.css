@@ -308,10 +308,6 @@ h5 {
 p {
   margin: auto;
   font-size: 1em;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
   line-height: 1.2em;
   letter-spacing: 0.02em;
 }
