@@ -129,7 +129,7 @@ gulp.task('img', ()=>{
 });
 
 gulp.task('html', ()=> {
-    gulp.src('./src/*.html')
+    gulp.src('./src/**/*.html')
     .pipe(gulp.dest(TEMPLATE_PATH))
     .pipe(connect.reload());
 });
