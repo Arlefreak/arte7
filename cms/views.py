@@ -1,6 +1,10 @@
 from django.shortcuts import render, render_to_response, get_object_or_404
 from .models import *
 
+def home(request):
+    context = {}
+    return render(request, 'home.html', context)
+
 def carrera(request, slug=None):
     list = PlanDeEstudios.objects.all()
     if slug:
@@ -73,10 +77,6 @@ def plantilla(request):
         'list_docente': list_docente,
     }
     return render(request, 'plantilla_docente.html', context)
-
-def otras(request):
-    context = {}
-    return render(request, 'otras_escuelas.html', context)
 
 def acerca_de(request):
     context = {}

@@ -1,2 +1,41 @@
 {% extends "base.html" %}
-{% block title %}<h2>Carrera</h1>{% endblock %}
+{% load solo_tags %}
+{% block header %}
+{% get_solo 'cms.CarreraDeCine' as carrera %}
+{% include 'big_header.html' with header_video=carrera.video %}
+{% endblock %}
+{% block content %}
+{% get_solo 'cms.CarreraDeCine' as carrera %}
+<main class="black-background">
+    <div class="black-wrapper">
+        <h1>DONDE HACEMOS EL CINE POSIBLE</h1>
+    </div>
+    <div class="margin"></div>
+    <div class="wrapper">
+        <section class="messages">
+            {% for item in "xxxx"%}
+            <article class="red-message">
+                <a href="">
+                    <h3>EXAMEN DE ADMISIÓN PARA CARRERA DE CINE</h3>
+                    <div class="rich-text">
+                        Examen de admisión para carrera de cine. Lunes 21 de abril.
+                    </div>
+                </a>
+            </article>
+            {% endfor %}
+        </section>
+        <div class="margin"></div>
+        <section class="mosaicos">
+            {% for item in "xxxxxx"%}
+            <article>
+                <div class="cover">
+                    <img src="http://placehold.it/350x150" alt="image">
+                    <a href=""></a>
+                </div>
+                <h3>carrera de cine</h3>
+            </article>
+            {% endfor %}
+        </section>
+    </div>
+</main>
+{% endblock %}

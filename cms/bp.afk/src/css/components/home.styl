@@ -1,0 +1,60 @@
+.messages
+    display flex
+    width 100%
+    margin auto
+    flex-flow row wrap
+    justify-content space-between
+    align-items center
+    .red-message
+        font-size 0.7em
+        width calc(100% / 4 - 2%)
+        opacity 0.5
+        transition opacity 0.2s ease
+        padding 0
+        margin 0
+        &:hover
+            opacity 1
+    a
+        color $red
+        width 100%
+        height 100%
+        display block
+        padding 10px
+        box-sizing border-box
+
+.mosaicos
+    display flex
+    width 100%
+    margin auto
+    flex-flow row wrap
+    justify-content space-between
+    align-items center
+    article
+        font-size 0.7em
+        width calc(100% / 3 - 2%)
+        padding 0
+        margin 0 0 20px 0
+    img
+        display block
+        width 100%
+        height auto
+    .cover
+        position relative
+    a
+        background-color $red
+        position absolute
+        top 0
+        left 0
+        width 100%
+        height 100%
+        display block
+        box-sizing border-box
+        opacity 0.2
+        transition opacity 0.2s ease
+        &:hover
+            opacity 0.5
+    h3
+        color $white
+        font-size 1.3em
+        margin 10px auto 10px auto
+        text-align center
