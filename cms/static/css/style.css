@@ -1049,7 +1049,7 @@ header img {
   padding: 20px 0 0 0;
 }
 .video-grid article {
-  width: 33.333%;
+  width: calc(100% / 5);
   position: relative;
 }
 .video-grid a:hover > .info {
