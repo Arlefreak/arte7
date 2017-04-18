@@ -55,27 +55,33 @@
     <div class="wrapper padding-top">
         <h1>CORTOMETRAJES</h1>
     </div>
-    <div class="wrapper video-grid">
-        {% for item in list_cortos %}
-        {% video item.video as video %}
-        <article>
-            <a data-lity href="{{ video.url }}">
-                <div
-                    class="cover"
-                    style="background-image: url('{{ video.thumbnail }}'"
-                    >
-                </div>
-                <div class="info">
-                    <h3>{{ item.title }}</h3>
-                    <div>
-                        {{ item.description | safe }}
+    <div class="slider-wrapper">
+        <div class="slider-controls">
+            <img class="arrow-prev arrow" src="{% static "img/arrow-left.svg" %}" alt="prev">
+            <img class="arrow-next arrow" src="{% static "img/arrow-right.svg" %}" alt="next">
+        </div>
+        <div class="wrapper video-grid">
+            {% for item in list_cortos %}
+            {% video item.video as video %}
+            <article>
+                <a data-lity href="{{ video.url }}">
+                    <div
+                        class="cover"
+                        style="background-image: url('{{ video.thumbnail }}'"
+                        >
                     </div>
-                    <img class="play-button" src="{% static "img/play.svg" %}" alt="play">
-                </div>
-            </a>
-        </article>
-        {% endvideo %}
-        {% endfor %}
+                    <div class="info">
+                        <h3>{{ item.title }}</h3>
+                        <div>
+                            {{ item.description | safe }}
+                        </div>
+                        <img class="play-button" src="{% static "img/play.svg" %}" alt="play">
+                    </div>
+                </a>
+            </article>
+            {% endvideo %}
+            {% endfor %}
+        </div>
     </div>
 </main>
 {% endblock %}
@@ -91,6 +97,8 @@
         autoplay: true,
         autoplaySpeed: 2000,
         arrows: true,
+        prevArrow: $('.arrow-prev'),
+        nextArrow: $('.arrow-next'),
         dots: false,
         swipeToSlide: true,
         responsive: [

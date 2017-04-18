@@ -31,20 +31,26 @@
     <div class="wrapper">
         <h1>FILMOGRAFÍA</h1>
     </div>
-    <div class="wrapper film-slider">
-        {% for item in list %}
-        <article>
-            <div class="cover">
-                <img src="{{ item.image.url }}" alt="poster">
-            </div>
-            <div class="info">
-                <h3>{{ item.title }}</h3>
-                <div class="rich-text">
-                    {{ item.description | safe }}
+    <div class="slider-wrapper">
+        <div class="slider-controls">
+            <img class="arrow-prev arrow" src="{% static "img/arrow-left.svg" %}" alt="prev">
+            <img class="arrow-next arrow" src="{% static "img/arrow-right.svg" %}" alt="next">
+        </div>
+        <div class="wrapper film-slider">
+            {% for item in list %}
+            <article>
+                <div class="cover">
+                    <img src="{{ item.image.url }}" alt="poster">
                 </div>
-            </div>
-        </article>
-        {% endfor %}
+                <div class="info">
+                    <h3>{{ item.title }}</h3>
+                    <div class="rich-text">
+                        {{ item.description | safe }}
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
     </div>
 </main>
 <div class="margin"></div>
@@ -73,6 +79,8 @@
         slidesToShow: 6,
         slidesToScroll: 2,
         arrows: true,
+        prevArrow: $('.arrow-prev'),
+        nextArrow: $('.arrow-next'),
         dots: false,
         responsive: [
             {
