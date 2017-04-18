@@ -28,7 +28,7 @@
                     {{ carrera.second_description | safe }}
                 </div>
             </div>
-            <div class="column temario">
+            <div id="plan-de-estudios" class="column temario">
                 <h3>plan de estudios</h3>
                 <div class="two-column">
                     <ul class="column titles">
@@ -36,7 +36,7 @@
                         <li>
                             <a 
                                 class="{% if plan.active %}active{% endif %}"
-                                href="{% url 'carrera' plan.slug %}">{{ plan.title }}
+                                href="{% url 'carrera' plan.slug %}#plan-de-estudios">{{ plan.title }}
                             </a>
                         </li>
                         {% endfor %}

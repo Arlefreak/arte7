@@ -909,7 +909,7 @@ header img {
   max-width: 768px;
   margin: auto;
 }
-.red-message {
+.red-message-link {
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
@@ -927,13 +927,13 @@ header img {
   padding: 0;
   margin: 0;
 }
-.red-message:hover,
-.red-message.active {
+.red-message-link:hover,
+.red-message-link.active {
   opacity: 1;
   -ms-filter: none;
   filter: none;
 }
-.red-message a {
+.red-message-link a {
   color: #e54115;
   width: 100%;
   height: 100%;

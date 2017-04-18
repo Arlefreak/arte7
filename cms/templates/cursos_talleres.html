@@ -38,7 +38,7 @@
                     {{ single_curso.second_description | safe }}
                 </div>
             </div>
-            <div class="column temario">
+            <div id="temario" class="column temario">
                 <h3>Temario</h3>
                 <div class="two-column">
                     <ul class="column titles">
@@ -46,7 +46,7 @@
                         <li>
                             <a 
                                 class="{% if item.active %}active{% endif %}"
-                                href="{% url 'cursos' single_curso.slug item.slug %}">{{ item.title }}
+                                href="{% url 'cursos' single_curso.slug item.slug %}#temario">{{ item.title }}
                             </a>
                         </li>
                         {% endfor %}
