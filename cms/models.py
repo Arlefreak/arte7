@@ -4,6 +4,7 @@ from solo.models import SingletonModel
 from adminsortable.models import SortableMixin
 from adminsortable.fields import SortableForeignKey
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 from embed_video.fields import EmbedVideoField
 from django.core.urlresolvers import reverse
 import os
@@ -30,12 +31,15 @@ def upload_to(instance, filename):
         now().strftime("%Y%m%d%H%M%S"),
         filename_ext.lower(),)
 
+class CKTest(SingletonModel):
+    file = RichTextUploadingField()
+
 class CarreraDeCine(SingletonModel):
     video = EmbedVideoField()
-    description = RichTextField()
+    description = RichTextUploadingField()
     message_title = models.CharField(max_length=140)
-    message_body = RichTextField()
-    second_description = RichTextField()
+    message_body = RichTextUploadingField()
+    second_description = RichTextUploadingField()
     def __str__(self):
         return "Carrera de cine"
 

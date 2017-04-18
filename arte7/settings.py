@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
+    "ckeditor_uploader",
     'adminsortable',
     'embed_video',
     'solo',
@@ -139,31 +140,48 @@ CKEDITOR_CONFIGS = {
             ['Bold', 'Italic', 'Underline', 'Format'],
             ['BulletedList'],
             ['Link', 'Unlink'],
+            ['Image', 'File'],
             ['RemoveFormat', 'Source']
-        ]
+        ],
+        'extraPlugins': ','.join(
+            [
+                'uploadimage', # the upload image feature
+                'uploadwidget', # the upload image feature
+            ]),
     },
 }
 
 AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
 AWS_QUERYSTRING_AUTH = False
 AWS_PRELOAD_METADATA = True
 
-if DEBUG:
-    STATIC_URL = '/static/'
-else:
-    STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-    COLLECTFAST_ENABLED = True
-    STATIC_URL = 'http://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
+# if DEBUG:
+#     STATIC_URL = '/static/'
+#     STATICFILES_LOCATION = 'static'
+# else:
+#     COLLECTFAST_ENABLED = True
+#     STATICFILES_LOCATION = 'static'
+#     STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-CKEDITOR_UPLOAD_PATH = STATIC_URL + 'uploads/'
+
+COLLECTFAST_ENABLED = True
+
+STATICFILES_LOCATION = 'static'
+STATICFILES_STORAGE = 'arte7.custom_storages.StaticStorage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+
+MEDIA_ROOT = 'media'
 MEDIAFILES_LOCATION = 'media'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 DEFAULT_FILE_STORAGE = 'arte7.custom_storages.MediaStorage'
+
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
+CKEDITOR_UPLOAD_PATH = MEDIA_URL + 'uploads/'
+CKEDITOR_IMAGE_BACKEND = 'pillow'
 
 # Email
 EMAIL_USE_TLS = True

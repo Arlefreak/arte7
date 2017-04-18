@@ -23,6 +23,10 @@ class AdminImageMixin(object):
 #     admin_video_thumbnail.allow_tags = True
 #     admin_video_thumbnail.short_description = u"Video"
 
+@admin.register(CKTest)
+class CKtest(SingletonModelAdmin):
+    pass
+
 @admin.register(CarreraDeCine)
 class CarreraDeCineAdmin(AdminVideoMixin, SingletonModelAdmin):
     pass
