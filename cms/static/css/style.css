@@ -280,6 +280,18 @@ h1 {
   text-align: center;
   margin: 0 auto 40px auto;
 }
+h1.big {
+  font-size: 3em;
+  color: #fff;
+}
+h1.big a {
+  color: #fff;
+  font-weight: 800;
+  text-transform: lowercase;
+}
+h1.big a:hover {
+  color: #e54115;
+}
 h2 {
   font-size: 1.2em;
   font-weight: 800;
