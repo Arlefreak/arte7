@@ -188,3 +188,30 @@ class MosaicosHomeAdmin(AdminImageMixin, ViewOnSiteMixin, SortableAdmin):
         'admin_image',
         'link',
     )
+
+@admin.register(Home)
+class HomeAdmin(AdminVideoMixin, SingletonModelAdmin):
+    pass
+
+@admin.register(Boutique)
+class BoutiqueAdmin(SingletonModelAdmin):
+    pass
+
+@admin.register(Contacto)
+class ContactoAdmin(SingletonModelAdmin):
+    pass
+
+@admin.register(GuiaAlumnoMessages)
+class GuiaAlumnoMessagesAdmin(ViewOnSiteMixin, SortableAdmin):
+    save_as = True
+    list_display = (
+        'order',
+        'title',
+        'file',
+        'view_on_site',
+    )
+    list_display_links = (
+        'order',
+        'title',
+        'file',
+    )

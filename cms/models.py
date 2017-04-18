@@ -163,7 +163,6 @@ class Filmografia(SortableMixin):
     def __str__(self):
         return self.title
 
-
 class Personal(SortableMixin):
     order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
     image = models.ImageField(upload_to=upload_to)
@@ -185,6 +184,39 @@ class Personal(SortableMixin):
     def __str__(self):
         return self.name
 
+class Home(SingletonModel):
+    video = EmbedVideoField()
+    description = RichTextField()
+    description_objetivo = RichTextField()
+    image_objetivo = models.ImageField(upload_to=upload_to)
+    description_resolucion = RichTextField()
+    image_resolucion = models.ImageField(upload_to=upload_to)
+
+class GuiaAlumnoMessages(SortableMixin):
+    title = models.CharField(max_length=140)
+    slug  = models.CharField(max_length=200, editable=False)
+    order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+    file = models.FileField(upload_to=upload_to)
+    description = RichTextField(blank=True, null=True)
+    def save(self, *args, **kwargs):
+        self.slug = defaultfilters.slugify(self.title)
+        super(FrasesHome, self).save(*args, **kwargs)
+    def get_absolute_url(self):
+        return reverse('home')
+    class Meta:
+        verbose_name = 'Mensaje guia del alumno'
+        verbose_name_plural = 'Mensajes guia del alumno'
+        ordering = ['order']
+    def __str__(self):
+        return self.title 
+
+class Boutique(SingletonModel):
+    description = RichTextField()
+    link = models.URLField()
+
+class Contacto(SingletonModel):
+    title = models.CharField(max_length=140)
+    description = RichTextField()
 
 class FrasesHome(SortableMixin):
     title = models.CharField(max_length=140)

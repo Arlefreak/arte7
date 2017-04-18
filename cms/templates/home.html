@@ -2,8 +2,8 @@
 {% load solo_tags %}
 {% load static %}
 {% block header %}
-{% get_solo 'cms.CarreraDeCine' as carrera %}
-{% include 'big_header.html' with header_video=carrera.video %}
+{% get_solo 'cms.home' as item %}
+{% include 'big_header.html' with header_video=item.video %}
 {% endblock %}
 
 {% block header-refs %}
@@ -13,7 +13,10 @@
 {% endblock %}
 
 {% block content %}
-{% get_solo 'cms.CarreraDeCine' as carrera %}
+{% get_solo 'cms.home' as home %}
+{% get_solo 'cms.boutique' as boutique %}
+{% get_solo 'cms.contacto' as contacto %}
+
 <main class="black-background">
     <div class="black-wrapper">
         <ul class="titles-slide">
@@ -51,7 +54,91 @@
             {% endfor %}
         </section>
     </div>
+    <div class="margin"></div>
 </main>
+
+<main class="black-background">
+    <div class="wrapper big">
+        {{  home.description | safe }}
+    </div>
+    <div class="margin"></div>
+</main>
+
+<main class="black-background">
+    <div class="wrapper">
+
+        <div class="home-foto">
+            <img src="{{  home.image_objetivo.url }}" alt="objetivo">
+            <div class="rich-text">
+                <h2>objetivo</h2>
+                {{  home.description_objetivo | safe }}
+            </div>
+        </div>
+
+        <div class="margin"></div>
+
+        <div class="home-foto">
+            <div class="rich-text">
+                <h2>resolucion</h2>
+                {{  home.description_resolucion | safe }}
+            </div>
+            <img src="{{  home.image_resolucion.url }}" alt="objetivo">
+        </div>
+
+    </div>
+    <div class="margin"></div>
+</main>
+
+
+<main class="black-background">
+    <div class="black-wrapper">
+        <h1>guia del alumno</h1>
+    </div>
+    <div class="wrapper">
+        {% for item in list_guia %}
+        <article class="red-message">
+            <a href="{{item.file}}">
+                <h3>{{ item.title }}</h3>
+                {% if item.description %}
+                <div class="rich-text">
+                    {{ item.description | safe }}
+                </div>
+                {% endif %}
+            </a>
+        </article>
+        {% endfor %}
+    </div>
+</main>
+
+<main class="black-background">
+    <div class="black-wrapper">
+        <h1>Boutique</h1>
+    </div>
+    <div class="wrapper">
+        <div class="big rich-text">
+            {{ boutique.description | safe }}
+        </div>
+        <div class="red-message">
+            <a href="{{ boutique.link }}">visita nuestro CATÁLOGO</a>
+        </div>
+    </div>
+    <div class="margin"></div>
+</main>
+
+<main class="black-background">
+    <div class="black-wrapper">
+        <h1>contacto</h1>
+    </div>
+    <div class="wrapper">
+        <div class="big">
+            <u>{{ contacto.title }}</u>
+        </div>
+        <div class="big rich-text">
+            {{ contacto.description | safe }}
+        </div>
+    </div>
+</main>
+
 {% endblock %}
 
 {% block footer-refs %}
@@ -74,10 +161,7 @@
 
         function timeout(time) {
             window.setTimeout(()=> {
-                console.log(messages);
                 $.map(messages, element => element.className = 'red-message');
-
-                console.log(count);
                 messages[count].className = 'red-message active';
                 count ++;
                 if(count > messages.length - 1)

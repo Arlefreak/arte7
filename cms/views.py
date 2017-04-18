@@ -84,19 +84,3 @@ def plantilla(request):
         'list_docente': list_docente,
     }
     return render(request, 'plantilla_docente.html', context)
-
-def acerca_de(request):
-    context = {}
-    return render(request, 'operas_primas_cortometrajes.html', context)
-
-def guia_del_alumno(request):
-    context = {}
-    return render(request, 'operas_primas_cortometrajes.html', context)
-
-def boutique(request):
-    context = {}
-    return render(request, 'operas_primas_cortometrajes.html', context)
-
-def contacto(request):
-    context = {}
-    return render(request, 'operas_primas_cortometrajes.html', context)

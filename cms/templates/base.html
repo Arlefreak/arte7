@@ -120,15 +120,29 @@
             function onYouTubeIframeAPIReady() {
                 player = new YT.Player('header_video', {
                     events: {
-                        'onReady': onPlayerReady
-                    }
+                        'onReady': onPlayerReady,
+                        'onStateChange': onStateChange,
+                    },
+                    playerVars : { 
+                        'autoplay': 1,
+                        'controls': 0 ,
+                        'modestbranding': 1,
+                        'showinfo': 0,
+                        'loop': 1,
+                    },
                 });
             }
 
             function onPlayerReady() {
                 player.playVideo();
-                // Mute!
+                var id = player.getVideoData()['video_id']
                 player.mute();
+            }
+
+            function onStateChange(e) {
+                if(e.data == YT.PlayerState.ENDED) {
+                    player.playVideo();
+                }
             }
         </script>
 
@@ -141,8 +155,8 @@
                     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
             })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-ga('create', 'xxxxxxxx', 'auto');
-ga('send', 'pageview');
+            ga('create', 'xxxxxxxx', 'auto');
+            ga('send', 'pageview');
 
         </script>
     </body>
