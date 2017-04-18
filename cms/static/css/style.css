@@ -328,6 +328,7 @@ p {
   font-size: 1.5em;
   font-weight: 600;
   line-height: 1.4em;
+  font-size: 250%;
 }
 strong {
   font-weight: 600;
@@ -1220,12 +1221,12 @@ header img {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-  -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  -o-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
   color: #fff;
   text-align: center;
 }
@@ -1237,8 +1238,15 @@ header img {
   display: box;
   display: flex;
   width: calc(50% - 2%);
+  max-width: 350px;
   height: auto;
   border: 1px solid #fff;
+}
+.otras-escuelas img:first-child {
+  margin: 0 1% 0 0;
+}
+.otras-escuelas img:last-child {
+  margin: 0 0 0 1%;
 }
 @-moz-keyframes FadeIn {
   0% {

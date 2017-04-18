@@ -137,12 +137,17 @@
     display flex
     flex-flow row
     align-items center
-    justify-content space-between
+    justify-content center
     color $white
     text-align center
     img
         display flex
         width calc(50% - 2%)
+        max-width 350px
         height auto
         border 1px solid $white
+        &:first-child
+            margin 0 1% 0 0
+        &:last-child
+            margin 0 0 0 1%
 
