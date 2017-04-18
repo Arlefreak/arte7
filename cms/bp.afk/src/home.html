@@ -57,7 +57,19 @@
     <div class="margin"></div>
 </main>
 
-<main class="black-background">
+<main id="otras-escuelas" class="black-background">
+    <div class="wrapper otras-escuelas">
+        <img src="{% static "img/otrasescuelas1.svg" %}" alt="otras">
+        <img src="{% static "img/otrasescuelas2.svg" %}" alt="otras">
+    </div>
+    <div class="margin"></div>
+    <div class="wrapper otras-escuelas">
+        <h3>otras escuelas</h3>
+    </div>
+    <div class="margin"></div>
+</main>
+
+<main id="acerca" class="black-background">
     <div class="wrapper big">
         {{  home.description | safe }}
     </div>
@@ -66,7 +78,6 @@
 
 <main class="black-background">
     <div class="wrapper">
-
         <div class="home-foto">
             <img src="{{  home.image_objetivo.url }}" alt="objetivo">
             <div class="rich-text">
@@ -90,7 +101,7 @@
 </main>
 
 
-<main class="black-background">
+<main id="guia" class="black-background">
     <div class="margin"></div>
     <div class="black-wrapper">
         <h1>guia del alumno</h1>
@@ -120,7 +131,7 @@
     <div class="margin"></div>
 </main>
 
-<main class="black-background">
+<main id="boutique" class="black-background">
     <div class="black-wrapper">
         <h1>Boutique</h1>
     </div>
@@ -136,7 +147,7 @@
     <div class="margin"></div>
 </main>
 
-<main class="black-background">
+<main id="contacto" class="black-background">
     <div class="black-wrapper">
         <h1>contacto</h1>
     </div>
