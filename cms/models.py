@@ -200,7 +200,7 @@ class GuiaAlumnoMessages(SortableMixin):
     description = RichTextField(blank=True, null=True)
     def save(self, *args, **kwargs):
         self.slug = defaultfilters.slugify(self.title)
-        super(FrasesHome, self).save(*args, **kwargs)
+        super(GuiaAlumnoMessages, self).save(*args, **kwargs)
     def get_absolute_url(self):
         return reverse('home')
     class Meta:

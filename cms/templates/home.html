@@ -31,7 +31,7 @@
     <div class="wrapper">
         <section class="messages">
             {% for item in list_messages %}
-            <article class="red-message">
+            <article class="red-message red-message-link">
                 <a href="{{ item.url }}">
                     <h3>{{ item.title }}</h3>
                     <div class="rich-text">
@@ -91,23 +91,33 @@
 
 
 <main class="black-background">
+    <div class="margin"></div>
     <div class="black-wrapper">
         <h1>guia del alumno</h1>
     </div>
     <div class="wrapper">
-        {% for item in list_guia %}
-        <article class="red-message">
-            <a href="{{item.file}}">
-                <h3>{{ item.title }}</h3>
-                {% if item.description %}
-                <div class="rich-text">
-                    {{ item.description | safe }}
-                </div>
-                {% endif %}
-            </a>
-        </article>
+        <div class="guia-message">
+            <p>
+                Estos materiales están disponibles en descarga directa.
+            </p>
+        </div>
+        <div class="margin"></div>
+        <div class="guia-messages">
+            {% for item in list_guia %}
+            <article class="red-message red-message-link">
+                <a href="{{item.file}}">
+                    <h3>{{ item.title }}</h3>
+                    {% if item.description %}
+                    <div class="rich-text">
+                        {{ item.description | safe }}
+                    </div>
+                    {% endif %}
+                </a>
+            </article>
         {% endfor %}
+        </div>
     </div>
+    <div class="margin"></div>
 </main>
 
 <main class="black-background">
@@ -118,8 +128,9 @@
         <div class="big rich-text">
             {{ boutique.description | safe }}
         </div>
-        <div class="red-message">
-            <a href="{{ boutique.link }}">visita nuestro CATÁLOGO</a>
+        <div class="margin"></div>
+        <div class="boutique-message red-message red-message-link">
+            <a href="{{ boutique.link }}"><h3>visita nuestro CATÁLOGO<h3></a>
         </div>
     </div>
     <div class="margin"></div>

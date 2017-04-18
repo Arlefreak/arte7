@@ -5,10 +5,12 @@ def home(request):
     list_frases = FrasesHome.objects.all()
     list_messages = MessagesHome.objects.all()
     list_mosaicos = MosaicosHome.objects.all()
+    list_guia = GuiaAlumnoMessages.objects.all()
     context = {
         'list_frases': list_frases,
         'list_messages': list_messages,
         'list_mosaicos': list_mosaicos,
+        'list_guia': list_guia,
     }
     return render(request, 'home.html', context)
 
