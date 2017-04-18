@@ -3,8 +3,12 @@ from .models import *
 
 def home(request):
     list_frases = FrasesHome.objects.all()
+    list_messages = MessagesHome.objects.all()
+    list_mosaicos = MosaicosHome.objects.all()
     context = {
         'list_frases': list_frases,
+        'list_messages': list_messages,
+        'list_mosaicos': list_mosaicos,
     }
     return render(request, 'home.html', context)
 

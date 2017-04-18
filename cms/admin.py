@@ -142,7 +142,7 @@ class FilmografiaAdmin(AdminImageMixin, ViewOnSiteMixin, SortableAdmin):
     list_filter = ('personal_type', )
 
 @admin.register(FrasesHome)
-class FrasesHome(ViewOnSiteMixin, SortableAdmin):
+class FrasesHomeAdmin(ViewOnSiteMixin, SortableAdmin):
     save_as = True
     list_display = (
         'order',
@@ -152,4 +152,39 @@ class FrasesHome(ViewOnSiteMixin, SortableAdmin):
     list_display_links = (
         'order',
         'title',
+    )
+
+@admin.register(MessagesHome)
+class MessagesHomeAdmin(ViewOnSiteMixin, SortableAdmin):
+    save_as = True
+    list_display = (
+        'order',
+        'title',
+        'link',
+        'view_on_site',
+    )
+    list_display_links = (
+        'order',
+        'title',
+        'link',
+    )
+    # list_editable = (
+    #     'link',
+    # )
+
+@admin.register(MosaicosHome)
+class MosaicosHomeAdmin(AdminImageMixin, ViewOnSiteMixin, SortableAdmin):
+    save_as = True
+    list_display = (
+        'order',
+        'title',
+        'link',
+        'admin_image',
+        'view_on_site',
+    )
+    list_display_links = (
+        'order',
+        'title',
+        'admin_image',
+        'link',
     )

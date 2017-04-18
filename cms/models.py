@@ -13,6 +13,15 @@ PERSONAL_CHOICES = (
     ('DOC', 'Plantilla Docente'),
 )
 
+PAGES = (
+    ('CAR', 'carrera de cine'),
+    ('CUR', 'cursos / talleres'),
+    ('OPE', 'Óperas primas / cortometrajes'),
+    ('PRO', 'productora / películas'),
+    ('PLA', 'plantilla docente'),
+    ('HOM', 'home'),
+)
+
 def upload_to(instance, filename):
     from django.utils.timezone import now
     filename_base, filename_ext = os.path.splitext(filename)
@@ -176,6 +185,7 @@ class Personal(SortableMixin):
     def __str__(self):
         return self.name
 
+
 class FrasesHome(SortableMixin):
     title = models.CharField(max_length=140)
     slug  = models.CharField(max_length=200, editable=False)
@@ -191,3 +201,40 @@ class FrasesHome(SortableMixin):
         ordering = ['order']
     def __str__(self):
         return self.title 
+
+class MessagesHome(SortableMixin):
+    order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+    link = models.URLField()
+    title = models.CharField(max_length=140)
+    slug  = models.CharField(max_length=200, editable=False)
+    description = RichTextField()
+    def save(self, *args, **kwargs):
+        self.slug = defaultfilters.slugify(self.title)
+        super(MessagesHome, self).save(*args, **kwargs)
+    def get_absolute_url(self):
+        return reverse('home')
+    class Meta:
+        verbose_name = 'Mensaje del home'
+        verbose_name_plural = 'Mensajes del home'
+        ordering = ['order']
+    def __str__(self):
+        return self.title 
+
+class MosaicosHome(SortableMixin):
+    title = models.CharField(max_length=140)
+    link = models.URLField()
+    slug  = models.CharField(max_length=200, editable=False)
+    order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
+    image = models.ImageField(upload_to=upload_to)
+    def save(self, *args, **kwargs):
+        self.slug = defaultfilters.slugify(self.title)
+        super(MosaicosHome, self).save(*args, **kwargs)
+    def get_absolute_url(self):
+        return reverse('home')
+    class Meta:
+        verbose_name = 'Mosaico del home'
+        verbose_name_plural = 'Mosaicos del home'
+        ordering = ['order']
+    def __str__(self):
+        return self.title 
+

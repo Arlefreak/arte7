@@ -27,12 +27,12 @@
     <div class="margin"></div>
     <div class="wrapper">
         <section class="messages">
-            {% for item in "xxxx"%}
+            {% for item in list_messages %}
             <article class="red-message">
-                <a href="">
-                    <h3>EXAMEN DE ADMISIÓN PARA CARRERA DE CINE</h3>
+                <a href="{{ item.url }}">
+                    <h3>{{ item.title }}</h3>
                     <div class="rich-text">
-                        Examen de admisión para carrera de cine. Lunes 21 de abril.
+                        {{ item.description | safe }}
                     </div>
                 </a>
             </article>
@@ -40,13 +40,13 @@
         </section>
         <div class="margin"></div>
         <section class="mosaicos">
-            {% for item in "xxxxxx"%}
+            {% for item in list_mosaicos %}
             <article>
                 <div class="cover">
-                    <img src="http://placehold.it/350x200" alt="image">
-                    <a href=""></a>
+                    <img src="{{ item.image.url }}" alt="{{ item.title }}">
+                    <a href="{{ item.url }}"></a>
                 </div>
-                <h3>carrera de cine</h3>
+                <h3>{{ item.title }}</h3>
             </article>
             {% endfor %}
         </section>
@@ -64,7 +64,31 @@
         fade: true,
         cssEase: 'linear',
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 5000,
+    });
+</script>
+<script>
+    $(function() {
+        var messages = $('.messages .red-message');
+        var count = 0;
+
+        function timeout(time) {
+            window.setTimeout(()=> {
+                console.log(messages);
+                $.map(messages, element => element.className = 'red-message');
+
+                console.log(count);
+                messages[count].className = 'red-message active';
+                count ++;
+                if(count > messages.length - 1)
+                    count = 0;
+            }, 500);
+
+            window.setTimeout(()=> {
+                timeout(time);
+            }, time);
+        }
+        timeout(2000);
     });
 </script>
 {% endblock %}
