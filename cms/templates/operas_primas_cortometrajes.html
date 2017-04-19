@@ -56,10 +56,8 @@
         <h1>CORTOMETRAJES</h1>
     </div>
     <div class="slider-wrapper">
-        <div class="slider-controls">
-            <img class="arrow-prev arrow" src="{% static "img/arrow-left.svg" %}" alt="prev">
-            <img class="arrow-next arrow" src="{% static "img/arrow-right.svg" %}" alt="next">
-        </div>
+        <img class="arrow-prev arrow" src="{% static "img/arrow-left.svg" %}" alt="prev">
+        <img class="arrow-next arrow" src="{% static "img/arrow-right.svg" %}" alt="next">
         <div class="wrapper video-grid">
             {% for item in list_cortos %}
             {% video item.video as video %}
@@ -94,7 +92,7 @@
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 1,
-        autoplay: true,
+        autoplay: false,
         autoplaySpeed: 2000,
         arrows: true,
         prevArrow: $('.arrow-prev'),

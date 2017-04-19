@@ -589,6 +589,23 @@ main {
 .slider-controls .arrow-prev {
   margin: 0 0 0 1%;
 }
+.arrow {
+  display: block;
+  width: 25px;
+  height: auto;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  z-index: 1000;
+}
+.arrow-next {
+  right: 1%;
+  transfrom: translate(0, -50%);
+}
+.arrow-prev {
+  left: 1%;
+  transfrom: translate(0, -50%);
+}
 .film-slider {
   height: auto;
   width: 100%;

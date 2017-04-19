@@ -32,10 +32,8 @@
         <h1>FILMOGRAFÍA</h1>
     </div>
     <div class="slider-wrapper">
-        <div class="slider-controls">
-            <img class="arrow-prev arrow" src="{% static "img/arrow-left.svg" %}" alt="prev">
-            <img class="arrow-next arrow" src="{% static "img/arrow-right.svg" %}" alt="next">
-        </div>
+        <img class="arrow-prev arrow" src="{% static "img/arrow-left.svg" %}" alt="prev">
+        <img class="arrow-next arrow" src="{% static "img/arrow-right.svg" %}" alt="next">
         <div class="wrapper film-slider">
             {% for item in list %}
             <article>
