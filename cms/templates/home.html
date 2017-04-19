@@ -32,7 +32,7 @@
         <section class="messages">
             {% for item in list_messages %}
             <article class="red-message red-message-link">
-                <a href="{{ item.url }}">
+                <a href="{{ item.link }}">
                     <h3>{{ item.title }}</h3>
                     <div class="rich-text">
                         {{ item.description | safe }}

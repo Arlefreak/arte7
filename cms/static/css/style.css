@@ -1483,6 +1483,88 @@ header img {
   margin: 0 auto 20px auto;
   text-transform: uppercase;
 }
+.video-grid-margin {
+  height: auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  -webkit-box-lines: single;
+  -moz-box-lines: single;
+  -o-box-lines: single;
+  -webkit-flex-flow: row nowrap;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  -o-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  padding: 20px 0 0 0;
+}
+.video-grid-margin article {
+  width: 30%;
+}
+.video-grid-margin a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  -webkit-transition: background-color 0.2s ease;
+  -moz-transition: background-color 0.2s ease;
+  -o-transition: background-color 0.2s ease;
+  -ms-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+}
+.video-grid-margin a:hover {
+  background: rgba(229,65,21,0.5);
+}
+.video-grid-margin .cover {
+  width: 100%;
+  padding: 0 0 70% 0;
+  position: relative;
+  background-color: #e54115;
+  background-image: url("http://placehold.it/350x300");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  margin: 0 0 20px 0;
+}
+.video-grid-margin .play-button {
+  height: 20%;
+  width: auto;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.video-grid-margin .info {
+  font-size: 0.8em;
+  text-align: center;
+  line-height: 1.3em;
+}
+.video-grid-margin .info h3 {
+  margin: 0;
+}
 .video-grid {
   height: auto;
   width: 100%;
@@ -1568,86 +1650,4 @@ header img {
   -o-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
   transform: translate(0, -50%);
-}
-.video-grid-margin {
-  height: auto;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  -o-box-orient: horizontal;
-  -webkit-box-lines: single;
-  -moz-box-lines: single;
-  -o-box-lines: single;
-  -webkit-flex-flow: row nowrap;
-  -ms-flex-flow: row nowrap;
-  flex-flow: row nowrap;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -o-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  -o-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
-  padding: 20px 0 0 0;
-}
-.video-grid-margin article {
-  width: 30%;
-}
-.video-grid-margin a {
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  -webkit-transition: background-color 0.2s ease;
-  -moz-transition: background-color 0.2s ease;
-  -o-transition: background-color 0.2s ease;
-  -ms-transition: background-color 0.2s ease;
-  transition: background-color 0.2s ease;
-}
-.video-grid-margin a:hover {
-  background: rgba(229,65,21,0.5);
-}
-.video-grid-margin .cover {
-  width: 100%;
-  padding: 0 0 70% 0;
-  position: relative;
-  background-color: #e54115;
-  background-image: url("http://placehold.it/350x300");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50%;
-  margin: 0 0 20px 0;
-}
-.video-grid-margin .play-button {
-  height: 20%;
-  width: auto;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
-.video-grid-margin .info {
-  font-size: 0.8em;
-  text-align: center;
-  line-height: 1.3em;
-}
-.video-grid-margin .info h3 {
-  margin: 0;
 }
