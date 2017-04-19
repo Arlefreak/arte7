@@ -931,6 +931,18 @@ header .nav-menu ul {
   -ms-flex-align: end;
   -webkit-align-items: flex-end;
   align-items: flex-end;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -o-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+header .nav-menu ul li {
+  margin: 0 0 8px 0;
+}
+header .nav-menu ul li:last-child {
+  margin: 0 0 0 0;
 }
 header img {
   width: aut;
@@ -942,7 +954,7 @@ header img {
   position: relative;
 }
 .big-header .wrapper {
-  height: 80px;
+  height: 120px;
   position: absolute;
   top: 50%;
   left: 50%;
