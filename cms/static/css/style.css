@@ -1307,7 +1307,7 @@ header img {
   color: #fff;
   text-align: center;
 }
-.otras-escuelas img {
+.otras-escuelas a {
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flex;
@@ -1317,13 +1317,20 @@ header img {
   width: calc(50% - 2%);
   max-width: 350px;
   height: auto;
-  border: 1px solid #fff;
 }
-.otras-escuelas img:first-child {
+.otras-escuelas a:first-child {
   margin: 0 1% 0 0;
 }
-.otras-escuelas img:last-child {
+.otras-escuelas a:last-child {
   margin: 0 0 0 1%;
+}
+.otras-escuelas a img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.otras-escuelas img {
+  border: 1px solid #fff;
 }
 @-moz-keyframes FadeIn {
   0% {

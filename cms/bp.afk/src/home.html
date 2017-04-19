@@ -59,8 +59,20 @@
 
 <main id="otras-escuelas" class="black-background">
     <div class="wrapper otras-escuelas">
-        <img src="{% static "img/otrasescuelas1.svg" %}" alt="otras">
-        <img src="{% static "img/otrasescuelas2.svg" %}" alt="otras">
+        {% if home.link_frente %}
+        <a href="{{ home.link_frente }}" target="_blank">
+        {% endif %}
+            <img src="{{ home.image_frente.url }}" alt="Frente a camara">
+        {% if home.link_frente %}
+        </a>
+        {% endif %}
+        {% if home.link_plataforma %}
+        <a href="{{ home.link_plataforma }}" target="_blank">
+        {% endif %}
+            <img src="{{ home.image_plataforma.url }}" alt="Plataforma">
+        {% if home.link_plataforma %}
+        </a>
+        {% endif %}
     </div>
     <div class="margin"></div>
     <div class="wrapper otras-escuelas">

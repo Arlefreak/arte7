@@ -195,6 +195,10 @@ class Home(SingletonModel):
     image_objetivo = models.ImageField(upload_to=upload_to)
     description_resolucion = RichTextField()
     image_resolucion = models.ImageField(upload_to=upload_to)
+    link_frente = models.URLField(blank=True, null=True)
+    image_frente = models.FileField(upload_to=upload_to)
+    link_plataforma = models.URLField(blank=True, null=True)
+    image_plataforma = models.FileField(upload_to=upload_to)
 
 class GuiaAlumnoMessages(SortableMixin):
     title = models.CharField(max_length=140)
