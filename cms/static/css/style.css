@@ -785,12 +785,12 @@ main {
   -ms-transition: color 0.2s ease;
   transition: color 0.2s ease;
 }
-.contact_form input[type="radio"]+label:first-child,
-.contact_form textarea[type="radio"]+label:first-child {
-  margin: 0 auto 5px auto;
+.contact_form input[type="radio"]+label:first-of-type,
+.contact_form textarea[type="radio"]+label:first-of-type {
+  margin: 20px auto 5px auto;
 }
-.contact_form input[type="radio"]+label:last-child,
-.contact_form textarea[type="radio"]+label:last-child {
+.contact_form input[type="radio"]+label:last-of-type,
+.contact_form textarea[type="radio"]+label:last-of-type {
   margin: 5px auto 0 auto;
 }
 .contact_form textarea {
