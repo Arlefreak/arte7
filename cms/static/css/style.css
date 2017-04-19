@@ -1440,15 +1440,12 @@ header img {
   display: -ms-flexbox;
   display: box;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  -o-box-orient: horizontal;
-  -webkit-box-lines: multiple;
-  -moz-box-lines: multiple;
-  -o-box-lines: multiple;
-  -webkit-flex-flow: row wrap;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-flow: column;
+  -ms-flex-flow: column;
+  flex-flow: column;
   -webkit-box-pack: justify;
   -moz-box-pack: justify;
   -o-box-pack: justify;
@@ -1457,8 +1454,46 @@ header img {
   justify-content: space-between;
 }
 .personal-grid article {
-  width: calc(100% / 3 - 2%);
+  width: 100%;
   margin: 0 auto 40px auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  -webkit-flex-flow: row;
+  -ms-flex-flow: row;
+  flex-flow: row;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  -o-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -moz-box-align: start;
+  -o-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+.personal-grid .avatar {
+  display: block;
+  width: 28%;
+  height: 300px;
+  background-color: #e54115;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+.personal-grid .info {
+  width: 70%;
 }
 .personal-grid img {
   display: block;
