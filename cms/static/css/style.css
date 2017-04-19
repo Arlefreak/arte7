@@ -955,7 +955,7 @@ header img {
 }
 .big-header .header-video-wrapper {
   width: 75%;
-  max-width: 768px;
+  max-width: 1024px;
   margin: auto;
 }
 .red-message-link {

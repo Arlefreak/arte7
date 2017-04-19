@@ -159,20 +159,14 @@ AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_QUERYSTRING_AUTH = False
 AWS_PRELOAD_METADATA = True
 
-# if DEBUG:
-#     STATIC_URL = '/static/'
-#     STATICFILES_LOCATION = 'static'
-# else:
-#     COLLECTFAST_ENABLED = True
-#     STATICFILES_LOCATION = 'static'
-#     STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
-
-
-COLLECTFAST_ENABLED = True
-
-STATICFILES_LOCATION = 'static'
-STATICFILES_STORAGE = 'arte7.custom_storages.StaticStorage'
-STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
+if DEBUG:
+    STATIC_URL = '/static/'
+    STATICFILES_LOCATION = 'static'
+else:
+    COLLECTFAST_ENABLED = True
+    STATICFILES_LOCATION = 'static'
+    STATICFILES_STORAGE = 'arte7.custom_storages.StaticStorage'
+    STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, STATICFILES_LOCATION)
 
 MEDIA_ROOT = 'media'
 MEDIAFILES_LOCATION = 'media'

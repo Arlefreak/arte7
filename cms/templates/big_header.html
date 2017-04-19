@@ -9,8 +9,13 @@
     </div>
     <div class="header-video-wrapper">
         <div class="video-wrapper">
-            {# video header_video "large" template_name="header_video.html" query="enablejsapi=1&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0" #}
-            {% video header_video "large" template_name="header_video.html" query="background=1" %}
+            {% video header_video as item %}
+                {% if item.backend == "YoutubeBackend" %}
+                {% video item large template_name="header_video.html" query="enablejsapi=1&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0" %}
+                {% else %}
+                {% video item large template_name="header_video.html" query="background=1" %}
+                {% endif %}
+            {% endvideo %}
         </div>
     </div>
 </header>
