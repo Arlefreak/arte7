@@ -88,15 +88,17 @@ class OperasPrimasEntriesAdmin(ViewOnSiteMixin, AdminVideoMixin, SortableAdmin):
     )
 
 @admin.register(Cortometrajes)
-class CortometrajesAdmin(ViewOnSiteMixin, AdminVideoMixin, SortableAdmin):
+class CortometrajesAdmin(AdminImageMixin, ViewOnSiteMixin, AdminVideoMixin, SortableAdmin):
     save_as = True
     list_display = (
         'order',
         'title',
+        'admin_image',
         'view_on_site',
     )
     list_display_links = (
         'order',
+        'admin_image',
         'title',
     )
 
