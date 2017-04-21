@@ -28,7 +28,7 @@
 <main>
     <div class="wrapper video-grid-margin">
         {% for item in list %}
-        {% video item.video as video %}
+        {% video item.video is_secure=True as video %}
         <article>
             <div class="cover"
                 style="background-image: url('{{ video.thumbnail }}'"
@@ -60,7 +60,7 @@
         <img class="arrow-next arrow" src="{% static "img/arrow-right.svg" %}" alt="next">
         <div class="wrapper video-grid">
             {% for item in list_cortos %}
-            {% video item.video as video %}
+            {% video item.video is_secure=True as video %}
             <article>
                 <a data-lity href="{{ video.url }}">
                     <div
