@@ -18,7 +18,7 @@
 {% get_solo 'cms.contacto' as contacto %}
 
 <main class="black-background">
-    <div class="black-wrapper">
+    <div class="black-wrapper wrapper">
         <ul class="titles-slide">
             {% for item in list_frases %}
             <li>
@@ -27,7 +27,7 @@
             {% endfor %}
         </ul>
     </div>
-    <div class="margin"></div>
+    <div class="margin hide-mobile"></div>
     <div class="wrapper">
         <section class="messages">
             {% for item in list_messages %}
@@ -78,18 +78,18 @@
     <div class="wrapper otras-escuelas">
         <h3>otras escuelas</h3>
     </div>
-    <div class="margin"></div>
-    <div class="margin"></div>
-    <div class="margin"></div>
+    <div class="margin hide-mobile"></div>
+    <div class="margin hide-mobile"></div>
+    <div class="margin hide-mobile"></div>
 </main>
 
 <main id="acerca" class="black-background">
     <div class="wrapper big">
         {{  home.description | safe }}
     </div>
-    <div class="margin"></div>
-    <div class="margin"></div>
-    <div class="margin"></div>
+    <div class="margin hide-mobile"></div>
+    <div class="margin hide-mobile"></div>
+    <div class="margin hide-mobile"></div>
 </main>
 
 <main class="black-background">
@@ -102,7 +102,7 @@
             </div>
         </div>
 
-        <div class="margin"></div>
+        <div class="margin hide-mobile"></div>
 
         <div class="home-foto">
             <div class="rich-text">
@@ -120,7 +120,7 @@
 
 
 <main id="guia" class="black-background">
-    <div class="black-wrapper">
+    <div class="black-wrapper wrapper">
         <h1>guia del alumno</h1>
     </div>
     <div class="wrapper">
@@ -151,7 +151,7 @@
 </main>
 
 <main id="boutique" class="black-background">
-    <div class="black-wrapper">
+    <div class="black-wrapper wrapper">
         <h1>Boutique</h1>
     </div>
     <div class="wrapper">
@@ -224,7 +224,7 @@
                 <div class="margin"></div>
                 <div class="margin"></div>
             </div>
-            <div class="black-wrapper">
+            <div class="black-wrapper wrapper">
                 <h1 class="big"><a href="mailto:info@arte7.net">info@arte7.net</a></h1>
             </div>
             <div class="margin"></div>
@@ -238,6 +238,7 @@
             $('.titles-slide').slick({
                 dots: false,
                 infinite: true,
+                arrows: false,
                 speed: 500,
                 fade: true,
                 cssEase: 'linear',

@@ -17,16 +17,24 @@ h1
             font-size 200%
             &:hover
                 color $red
+        @media screen and (max-width: $mobile-width)
+            font-size 1.0em
+    @media screen and (max-width: $mobile-width)
+        font-size 1.5em
 h2
     font-size 1.2em
     font-weight 800
     margin 0 auto 20px auto
     text-transform uppercase
+    @media screen and (max-width: $mobile-width)
+        font-size 0.9em
 h3
     font-size 1.1em
     font-weight 800
     margin 0 auto 20px auto
     text-transform uppercase
+    @media screen and (max-width: $mobile-width)
+        font-size 0.8em
 h4
     font-size 1.0em
     font-weight 600
@@ -34,11 +42,15 @@ h4
     text-transform uppercase
     width 100%
     text-align left
+    @media screen and (max-width: $mobile-width)
+        font-size 0.01em
 h5
     font-size 1.0em
     font-weight 200
     margin 0 auto 20px auto
     text-transform uppercase
+    @media screen and (max-width: $mobile-width)
+        font-size 0.01em
 p
     margin auto
     font-size 1em
@@ -48,6 +60,9 @@ p
     font-size 1.5em
     font-weight 600
     line-height 1.4em
+    @media screen and (max-width: $mobile-width)
+        font-size 1.0em
+        font-weight 100
 strong
     font-weight 600
 a
@@ -71,15 +86,14 @@ main
 
 .wrapper
     width 80%
-    max-width 1280px
+    /* max-width 1280px */
     display block
     margin auto
-    min-width 780px
+    /* min-width 780px */
 
 .black-wrapper
     color $white
     background $black
-    width 100%
     padding 0 0 20px 0
     margin auto
     h1
@@ -217,3 +231,4 @@ main
 .arrow-prev
     left 1%
     transfrom translate(0, -50%)
+

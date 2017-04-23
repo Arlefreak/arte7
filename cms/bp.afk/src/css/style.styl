@@ -7,10 +7,18 @@ html
 body
     margin 0
     padding 0
-    min-width 1024px
+    /* min-width 1024px */
     color $white
     background $colorBg
     font-family $font
 
 @import 'content'
 @import 'components/*'
+
+.hide-mobile
+    @media screen and (max-width: $mobile-width)
+        display none !important
+
+.hide-desktop
+    @media screen and (min-width: $mobile-width)
+        display none !important

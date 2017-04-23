@@ -49,6 +49,9 @@
         &:hover
         &.active
             opacity 1
+        @media screen and (max-width: $mobile-width)
+            width calc(100% / 2 - 2%)
+            margin 20px 0 0 0
     a
         color $red
         width 100%
@@ -66,6 +69,8 @@
         display flex
         font-size 1em
         width calc(100% / 3 - 2%)
+        @media screen and (max-width: $mobile-width)
+            width 100%
 
 .guia-message
     color $white
@@ -77,6 +82,8 @@
     width calc(100% / 3 - 2%)
     margin auto
     padding 10px
+    @media screen and (max-width: $mobile-width)
+        width 100%
     h3
         margin 0
 
@@ -92,6 +99,8 @@
         width calc(100% / 3 - 2%)
         padding 0
         margin 0 0 20px 0
+        @media screen and (max-width: $mobile-width)
+            width 100%
     img
         display block
         width 100%
@@ -120,7 +129,7 @@
 .home-foto
     display flex
     width 100%
-    flex-flow row
+    flex-flow row wrap
     align-items center
     justify-content space-between
     color $white
@@ -129,13 +138,18 @@
         width calc(50% - 4%)
         display block
         height auto
+        @media screen and (max-width: $mobile-width)
+            width 100%
+            margin 20px auto 0 auto
     div
-        width calc(30%)
+        width 30%
+        @media screen and (max-width: $mobile-width)
+            width 100%
 
 
 .otras-escuelas
     display flex
-    flex-flow row
+    flex-flow row wrap
     align-items center
     justify-content center
     color $white
@@ -145,14 +159,24 @@
         width calc(50% - 2%)
         max-width 350px
         height auto
+        @media screen and (max-width: $mobile-width)
+            width 100%
+            max-width none
         &:first-child
             margin 0 1% 0 0
+            @media screen and (max-width: $mobile-width)
+                margin 0 0 20px 0
         &:last-child
             margin 0 0 0 1%
+            @media screen and (max-width: $mobile-width)
+                margin 0
         img
             display block
             width 100%
             height auto
     img
         border 1px solid $white
+        @media screen and (max-width: $mobile-width)
+            width 100%
+            display block
 
