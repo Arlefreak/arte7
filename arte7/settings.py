@@ -174,7 +174,7 @@ MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 DEFAULT_FILE_STORAGE = 'arte7.custom_storages.MediaStorage'
 
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-CKEDITOR_UPLOAD_PATH = MEDIA_URL + 'uploads/'
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 
 # Email
