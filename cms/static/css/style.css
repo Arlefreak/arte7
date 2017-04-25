@@ -415,6 +415,9 @@ main {
   margin: auto;
 /* min-width 780px */
 }
+.full-width {
+  width: 100%;
+}
 .black-wrapper {
   color: #fff;
   background: #000;
@@ -436,9 +439,12 @@ main {
   -webkit-box-orient: horizontal;
   -moz-box-orient: horizontal;
   -o-box-orient: horizontal;
-  -webkit-flex-flow: row;
-  -ms-flex-flow: row;
-  flex-flow: row;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  -o-box-lines: multiple;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
   -webkit-box-align: start;
   -moz-box-align: start;
   -o-box-align: start;
@@ -451,7 +457,7 @@ main {
   -ms-flex-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
-  padding: 0 0 20px 0;
+  padding: 0 0 2% 0;
 }
 .two-column .column {
   display: -webkit-box;
@@ -471,8 +477,65 @@ main {
 .two-column .column:first-child {
   width: 40%;
 }
+@media screen and (max-width: 1024px) {
+  .two-column .column:first-child {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .two-column .column:first-child {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .two-column .column:first-child {
+    width: 100%;
+  }
+}
 .two-column .column:last-child {
   width: 58%;
+}
+@media screen and (max-width: 768px) {
+  .two-column .column:last-child {
+    margin: 20px 0 0 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .two-column .column:last-child {
+    margin: 20px 0 0 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .two-column .mobile-column:first-child {
+    width: 40%;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .two-column .mobile-column:first-child {
+    width: 40%;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .two-column .mobile-column:first-child {
+    width: 40%;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .two-column .mobile-column:last-child {
+    width: 55%;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 450px) {
+  .two-column .mobile-column:last-child {
+    width: 58%;
+    margin: 0;
+  }
 }
 .red-message {
   color: #e54115;
@@ -509,6 +572,16 @@ main {
   font-weight: 800;
   text-transform: uppercase;
   font-size: 1em;
+}
+@media screen and (max-width: 768px) {
+  .titles {
+    font-size: 0.7em;
+  }
+}
+@media screen and (max-width: 450px) {
+  .titles {
+    font-size: 1em;
+  }
 }
 .titles li {
   margin: 10px 0 10px 0;

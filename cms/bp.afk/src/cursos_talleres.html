@@ -4,8 +4,10 @@
 {% endblock %}
 {% block content %}
 <main>
-    <div class="black-wrapper wrapper">
-        <h1>Cursos / talleres</h1>
+    <div class="black-wrapper full-width">
+        <div class="wrapper">
+            <h1>Cursos / talleres</h1>
+        </div>
     </div>
     <div class="wrapper">
         <article>
@@ -41,7 +43,7 @@
             <div id="temario" class="column temario">
                 <h3>Temario</h3>
                 <div class="two-column">
-                    <ul class="column titles">
+                    <ul class="column mobile-column titles">
                         {% for item in list_temarios %}
                         <li>
                             <a 
@@ -51,7 +53,7 @@
                         </li>
                         {% endfor %}
                     </ul>
-                    <section class="left-border column rich-text">
+                    <section class="left-border column mobile-column rich-text">
                         <article>
                             {{ single_temario.description | safe }}
                         </article>
