@@ -1,0 +1,38 @@
+.two-column
+    margin 0 auto 0 auto
+    width 100%
+    display flex
+    flex-flow row wrap
+    align-items flex-start
+    justify-content space-between
+    padding 0 0 2% 0
+    .column
+        display flex
+        flex-flow column
+        height 100%
+        box-sizing border-box
+        &:first-child
+            width 40%
+            @media screen and (max-width: $laptop-width)
+                margin 20px 0 0 0
+                width 100%
+        &:last-child
+            width 58%
+            @media screen and (max-width: $laptop-width)
+                margin 20px 0 0 0
+                width 100%
+    .mobile-column
+        &:first-child
+            @media screen and (max-width: $laptop-width)
+                width 40%
+                margin 0
+                @media screen and (max-width: $tablet-width)
+                    width 100%
+                    margin 20px 0 0 0
+        &:last-child
+            @media screen and (max-width: $laptop-width)
+                width 58%
+                margin 0
+                @media screen and (max-width: $tablet-width)
+                    width 100%
+                    margin 20px 0 0 0

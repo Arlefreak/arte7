@@ -1,12 +1,15 @@
 .video-grid-margin
     height auto
     display flex
-    flex-flow row no-wrap
+    flex-flow row wrap
     align-items center
     justify-content space-between
     padding 20px 0 0 0
     article
-        width 30%
+        width calc(100% / 3 - 3%)
+        @media screen and (max-width: $tablet-width)
+            width 100%
+            margin 20px 0 0 0
     a
         display block
         width 100%
