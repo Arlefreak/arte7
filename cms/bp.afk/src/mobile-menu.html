@@ -1,0 +1,26 @@
+{% load static %}
+<nav id="menu-mobile" class="nav-menu-mobile hide-desktop">
+    <div class="exit-menu">
+        <a href="{% url 'home' %}">
+            <img src="{% static "img/logo.svg" %}" alt="arlefreak">
+        </a>
+        <i id="hide-mobile-menu" class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <ul>
+        {% for page in menu %}
+        <li>
+            <a class="{% if page.active %} active{% endif %}"
+                href="{{page.url}}" title="{{page.name}}">{{page.name}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <div class="horizontal-line"></div>
+    <ul>
+        {% for page in footer_menu %}
+        <li>
+            <a class="{% if page.active %} active{% endif %}"
+                href="{{page.url}}" title="{{page.name}}">{{page.name}}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</nav>

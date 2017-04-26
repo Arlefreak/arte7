@@ -31,6 +31,13 @@ header
     img
         width auto
 
+.horizontal-line
+    width 80%
+    height 1px
+    background $white
+    margin 20px auto 20px auto
+    clear both
+
 .hamburguer-menu
     text-align right
     box-flex 1
@@ -38,6 +45,58 @@ header
     font-size 1.5em
     cursor pointer
 
+.exit-menu
+    height 50px
+    width 80%
+    display flex
+    flex-flow row wrap
+    align-items center
+    justify-content space-between
+    position absolute
+    top 6%
+    a
+    img
+        display block
+        height 100%
+        width auto
+    a
+        display flex
+        align-items center
+        justify-content center
+    i
+        font-size 2.0em
+
+.nav-menu-mobile
+    position fixed
+    top 0 
+    left 0
+    right 0
+    bottom 0
+    width 100vw
+    height 100vh
+    background transparentify($black, $black, 0.95)
+    color white
+    z-index 10000
+    letter-spacing 0.2em
+    line-height 1.2em
+    display flex
+    flex-flow column
+    align-items center
+    justify-content center
+    text-transform uppercase
+    display none
+    ul
+        display flex
+        flex-flow column
+        width 80%
+        margin 0
+        align-items flex-end
+        justify-content space-between
+        li
+            width 100%
+            margin 20px 0 0 0
+            &:first-child
+                margin 0 0 0 0
 .big-header
     height auto
     width auto

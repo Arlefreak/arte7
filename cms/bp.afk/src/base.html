@@ -82,6 +82,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         -->
+        {% include "mobile-menu.html" %}
         {% block header %}
             {% include "header.html" %}
         {% endblock %}
@@ -108,6 +109,25 @@
         {% endblock %}
 
         <script src="{% static "lib/js/jquery.min.js"%}"></script>
+        <script>
+            $(function() {
+                var showMenu = $('#show-mobile-menu');
+                var hideMenu = $('#hide-mobile-menu');
+
+                showMenu.click(function() {
+                    console.log("show")
+                    $('#menu-mobile')
+                        .css("display", "flex")
+                        .hide()
+                        .fadeIn('slow');
+                });
+
+                hideMenu.click(function(){
+                    console.log("hide");
+                    $('#menu-mobile').fadeOut('slow');
+                });
+            });
+        </script>
         <script>
             var tag = document.createElement('script');
 

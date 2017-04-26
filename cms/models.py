@@ -279,3 +279,8 @@ class MosaicosHome(SortableMixin):
     def __str__(self):
         return self.title 
 
+class Social(SingletonModel):
+    facebook = models.URLField()
+    instagram = models.URLField()
+    vimeo = models.URLField()
+

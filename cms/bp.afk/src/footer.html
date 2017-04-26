@@ -1,4 +1,6 @@
 {% load static %}
+{% load solo_tags %}
+{% get_solo 'cms.Social' as social %}
 <footer>
     <div class="wrapper">
         <nav class="nav-menu">
@@ -27,9 +29,9 @@
         </div>
         <nav class="social">
             <ul>
-                <li><a href="https://instagram.com/" class="button"><i class="fa fa-instagram"></i></a></li>
-                <li><a href="https://www.facebook.com/" class="button"><i class="fa fa-facebook-official"></i></a></li>
-                <li><a href="https://vimeo.com/" class="button"><i class="fa fa-vimeo"></i></a></li>
+                <li><a href="{{ social.instagram }}" target="_blank" class="button"><i class="fa fa-instagram"></i></a></li>
+                <li><a href="{{ social.facebook }}" target="_blank" class="button"><i class="fa fa-facebook-official"></i></a></li>
+                <li><a href="{{ social.vimeo }}" target="_blank" class="button"><i class="fa fa-vimeo"></i></a></li>
             </ul>
         </nav>
     </div>
