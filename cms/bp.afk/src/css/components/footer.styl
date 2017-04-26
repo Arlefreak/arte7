@@ -16,13 +16,20 @@ footer
         justify-content space-between
         &:first-child
             margin 0 auto 10px auto
+            @media screen and (max-width: $tablet-width)
+                auto
         &:last-child
             margin 10px auto 0 auto
+            @media screen and (max-width: $tablet-width)
+                auto
         span:first-child
             font-size 0.5em
             letter-spacing 0.3em
         .canon
             margin 0 0 0 90px
+            @media screen and (max-width: $tablet-width)
+                margin 20px 0 0 0
+                width 50%
             span
                 width 100%
                 text-align left
@@ -31,6 +38,8 @@ footer
         .copy
             align-self flex-end
             opacity 0.7
+            @media screen and (max-width: $tablet-width)
+                line-height 2.0em
         div
             display flex
             flex-flow column
@@ -40,17 +49,34 @@ footer
         letter-spacing 0.3em
         a
             text-transform lowercase
+        @media screen and (max-width: $tablet-width)
+            margin 0 0 20px 0
+        strong
+            @media screen and (max-width: $tablet-width)
+                line-height 2.0em
     .nav-menu
         display flex
         &:first-child
             width 20%
             text-align left
+            @media screen and (max-width: $tablet-width)
+                width 100%
+                ul
+                    flex-flow row wrap
+                    margin 0 0 20px 0
+                    li
+                        width 50%
+                        margin 0 0 20px 0
+                        text-align left
         &:last-child
             width 80%
             text-align right
             align-items flex-end
             justify-content flex-end
             align-self flex-start
+            @media screen and (max-width: $tablet-width)
+                width 100%
+                text-align left
         ul
             li
                 margin 5px 0 5px 0
@@ -62,6 +88,9 @@ footer
         display flex
         width 20%
         font-size 1.2em
+        @media screen and (max-width: $tablet-width)
+            margin 20px 0 0 0
+            width 50%
         ul
             width 100%
             display flex

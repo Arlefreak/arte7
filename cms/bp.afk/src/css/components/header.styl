@@ -29,7 +29,14 @@ header
                 &:last-child
                     margin 0 0 0 0
     img
-        width aut
+        width auto
+
+.hamburguer-menu
+    text-align right
+    box-flex 1
+    flex-grow 1
+    font-size 1.5em
+    cursor pointer
 
 .big-header
     height auto
@@ -43,7 +50,15 @@ header
         left 50%
         transform translate(-50%, -50%)
         z-index 1000
+        @media screen and (max-width: $tablet-width)
+            position inherit
+            transform translate(0,0)
+            top 0
+            left 0
+            height 50px
     .header-video-wrapper
         width 75%
         max-width 1024px
         margin auto
+        @media screen and (max-width: $tablet-width)
+            width 100%
