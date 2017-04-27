@@ -1,12 +1,80 @@
-from django.shortcuts import render, render_to_response, get_object_or_404
+from django.shortcuts import render, render_to_response, get_object_or_404, redirect
 from .models import *
+from .forms import ContactForm
+from django.core.mail import EmailMessage
+from django.template.loader import get_template
+# from django.template import Context
 
 def home(request):
+    form_class = ContactForm
+
     list_frases = FrasesHome.objects.all()
     list_messages = MessagesHome.objects.all()
     list_mosaicos = MosaicosHome.objects.all()
     list_guia = GuiaAlumnoMessages.objects.all()
+
+
+    if request.method == 'POST':
+        form = form_class(data=request.POST)
+
+        if form.is_valid():
+            contact_name = request.POST.get(
+                'contact_name',
+                ''
+            )
+
+            contact_email = request.POST.get(
+                'contact_email',
+                ''
+            )
+
+            contact_phone = request.POST.get(
+                'contact_phone',
+                ''
+            )
+
+            contact_interest = request.POST.get(
+                'contact_interest',
+                ''
+            )
+
+            contact_message = request.POST.get(
+                'contact_message',
+                ''
+            )
+
+            # Email the profile with the 
+            # contact information
+            template = get_template('contact_template.txt')
+            context = {
+                'contact_name': contact_name,
+                'contact_email': contact_email,
+                'contact_phone': contact_phone,
+                'contact_interest': contact_interest,
+                'contact_message': contact_message,
+            }
+            content = template.render(context)
+            if contact_interest == 'CAR':
+                send_to = "admisiones@arte7.net"
+            else:
+                send_to = "info@arte7.net"
+
+            # send_to = "arlefreak@gmail.com"
+            send_from = "info@arte7.net"
+
+            email = EmailMessage(
+                "Nuevo corre de contacto",
+                content,
+                send_from,
+                [send_to],
+                reply_to = [contact_email],
+            )
+
+            email.send(fail_silently=False)
+            return redirect('home')
+
     context = {
+        'form': form_class,
         'list_frases': list_frases,
         'list_messages': list_messages,
         'list_mosaicos': list_mosaicos,

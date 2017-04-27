@@ -1,0 +1,35 @@
+<form class="contact_form" role="form" action="" method="post" autocomplete="on">
+    {% csrf_token %}
+    <fieldset>
+        <input type="text" name="contact_name" placeholder="nombre*">
+        <input type="email" name="contact_email" placeholder="e-mail*">
+        <input type="phone" name="contact_phone" placeholder="teléfono*">
+    </fieldset>
+    <fieldset>
+        <P>¿en qué estás interesado?</P>
+        <input id="rad[1]" type="radio" name="contact_interest" value="CAR" checked>
+        <label for="rad[1]">
+            carrera de cine
+        </label>
+        <input id="rad[2]" type="radio" name="contact_interest" value="WOR">
+        <label for="rad[2]">
+            workshop de realización cinematográfica
+        </label>
+        <input id="rad[3]" type="radio" name="contact_interest" value=DIP"">
+        <label for="rad[3]">
+            diplomado en realización cinematográfica
+        </label>
+        <input id="rad[4]" type="radio" name="contact_interest" value="VER">
+        <label for="rad[4]">
+            workshop de verano
+        </label>
+        <input id="rad[5]" type="radio" name="contact_interest" value="OTR">
+        <label for="rad[5]">
+            otros
+        </label>
+        <textarea rows="4" cols="50" name="contact_message" placeholder="mensaje"></textarea> 
+    </fieldset>
+    <fieldset class="enviar">
+        <input type="submit" value="enviar">
+    </fieldset>
+</form>
