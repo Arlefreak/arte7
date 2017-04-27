@@ -7,7 +7,7 @@
         </a>
         {% include 'menu.html' %}
     </div>
-    <div class="header-video-wrapper">
+    <div class="header-video-wrapper hide-mobile">
         <div class="video-wrapper">
             {% video header_video as item %}
                 {% if item.backend == "YoutubeBackend" %}
@@ -17,6 +17,15 @@
                 {% endif %}
             {% endvideo %}
         </div>
+    </div>
+    <div class="video-wrapper hide-desktop">
+        {% video header_video as item %}
+            {% if item.backend == "YoutubeBackend" %}
+            {% video item large is_secure=True template_name="header_video.html" query="enablejsapi=1&autoplay=1&controls=1&loop=1&modestbranding=1&showinfo=0" %}
+            {% else %}
+            {% video item large is_secure=True template_name="header_video.html" query="" %}
+            {% endif %}
+        {% endvideo %}
     </div>
 </header>
 <div class="clearfix"></div>
