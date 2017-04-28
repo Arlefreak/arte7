@@ -614,6 +614,9 @@ main {
   left: 1%;
   transfrom: translate(0, -50%);
 }
+.white-text {
+  color: #fff;
+}
 .two-column {
   margin: 0 auto 0 auto;
   width: 100%;
@@ -763,19 +766,8 @@ main {
 }
 .contact_form fieldset.enviar {
   width: 100%;
-  -webkit-box-align: end;
-  -moz-box-align: end;
-  -o-box-align: end;
-  -ms-flex-align: end;
-  -webkit-align-items: flex-end;
-  align-items: flex-end;
-  -webkit-box-pack: end;
-  -moz-box-pack: end;
-  -o-box-pack: end;
-  -ms-flex-pack: end;
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end;
   margin: 20px 0 0 0;
+  display: block;
   text-align: right;
 }
 .contact_form p,
@@ -809,8 +801,8 @@ main {
   box-shadow: none;
   outline: none;
   border-bottom: 2px solid #fff;
-  margin: 10px auto 10px auto;
-  padding: 10px 0 10px 0;
+  margin: 20px auto 20px auto;
+  padding: 15px 0 15px 0;
   -webkit-transition: border-color 0.2s ease;
   -moz-transition: border-color 0.2s ease;
   -o-transition: border-color 0.2s ease;
@@ -850,19 +842,22 @@ main {
 .contact_form input[type="submit"],
 .contact_form textarea[type="submit"] {
   color: #e54115;
-  border: 2px solid #fff;
+  border: 2px solid #e54115;
+  background-color: transparent;
   width: 100px;
   margin: 0;
   cursor: pointer;
-  -webkit-transition: border-color 0.2s ease;
-  -moz-transition: border-color 0.2s ease;
-  -o-transition: border-color 0.2s ease;
-  -ms-transition: border-color 0.2s ease;
-  transition: border-color 0.2s ease;
+  -webkit-transition: background-color 0.2s ease;
+  -moz-transition: background-color 0.2s ease;
+  -o-transition: background-color 0.2s ease;
+  -ms-transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease;
+  display: inline-block;
 }
 .contact_form input[type="submit"]:hover,
 .contact_form textarea[type="submit"]:hover {
-  border-color: #e54115;
+  background-color: #e54115;
+  color: #fff;
 }
 .contact_form input[type="radio"],
 .contact_form textarea[type="radio"] {
@@ -1494,6 +1489,11 @@ header img {
   width: auto;
   display: block;
   position: relative;
+}
+@media screen and (max-width: 768px) {
+  .big-header {
+    padding: 40px 0 0 0;
+  }
 }
 .big-header .wrapper {
   height: 120px;
