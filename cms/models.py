@@ -224,7 +224,7 @@ class Boutique(SingletonModel):
     link = models.URLField()
 
 class Contacto(SingletonModel):
-    title = models.CharField(max_length=140)
+    title = models.CharField(max_length=140, blank=True, null=True)
     description = RichTextField()
 
 class FrasesHome(SortableMixin):
