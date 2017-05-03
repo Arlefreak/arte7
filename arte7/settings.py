@@ -26,6 +26,7 @@ if(DEBUG):
 else:
     ALLOWED_HOSTS = [
         '.arlefreak.com',
+        '.ellugar.co',
         '127.0.0.1',
         'localhost',
     ]
