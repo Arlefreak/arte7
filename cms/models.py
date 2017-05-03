@@ -284,5 +284,5 @@ class Social(SingletonModel):
     instagram = models.URLField()
     vimeo = models.URLField()
     title = models.CharField(max_length=50)
-    description = models.CharField(max_length=140)
+    description = models.CharField(max_length=300)
     preview = models.ImageField(upload_to=upload_to)
