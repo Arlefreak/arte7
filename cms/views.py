@@ -3,10 +3,11 @@ from .models import *
 from .forms import ContactForm
 from django.core.mail import EmailMessage
 from django.template.loader import get_template
-# from django.template import Context
 
-DEFAULT_TITLE = "ARTE7"
-DEFAULT_DESCRIPTION = "Arte 7 es una institución de carácter privado que nace en 2001; surge por la necesidad de crear una comunidad cinematográfica en donde el análisis del medio cinematográfico sea abordado con la determinación de crear cultura."
+social = Social.get_solo()
+DEFAULT_TITLE = social.title
+DEFAULT_DESCRIPTION = social.description
+DEFAULT_PREVIEW = social.preview
 
 def home(request):
     form_class = ContactForm
@@ -79,6 +80,7 @@ def home(request):
     context = {
         'title' : DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
+        'preview': DEFAULT_PREVIEW,
         'form': form_class,
         'list_frases': list_frases,
         'list_messages': list_messages,
@@ -101,6 +103,7 @@ def carrera(request, slug=None):
     context = {
         'title' : DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
+        'preview': DEFAULT_PREVIEW,
         'list': list,
         'single': single
     }
@@ -132,6 +135,7 @@ def cursos(request, curso_slug=None, temario_slug=None):
     context = {
         'title' : DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
+        'preview': DEFAULT_PREVIEW,
         'list_cursos': list_cursos,
         'single_curso': single_curso,
         'list_temarios': list_temarios,
@@ -145,6 +149,7 @@ def cortos(request):
     context = {
         'title' : DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
+        'preview': DEFAULT_PREVIEW,
         'list': list,
         'list_cortos': list_cortos,
     }
@@ -155,6 +160,7 @@ def productora(request):
     context = {
         'title' : DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
+        'preview': DEFAULT_PREVIEW,
         'list': list,
     }
     return render(request, 'productora_peliculas.html', context)
@@ -165,6 +171,7 @@ def plantilla(request):
     context = {
         'title' : DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
+        'preview': DEFAULT_PREVIEW,
         'list_directiva': list_directiva,
         'list_docente': list_docente,
     }
