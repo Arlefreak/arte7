@@ -179,9 +179,11 @@
                 </div>
                 <div class="margin"></div>
                 {% endif %}
+                {% if contacto.description %}
                 <div class="white-text rich-text">
                     {{ contacto.description | safe }}
                 </div>
+                {% endif %}
             </div>
             <div class="margin hide-mobile"></div>
             <div class="margin"></div>
