@@ -5,7 +5,7 @@ footer
     padding 40px 0 40px 0
     overflow hidden
     display flex
-    min-height 200px
+    /* min-height 200px */
     text-transform uppercase
     flex-flow column
     .wrapper
@@ -14,6 +14,10 @@ footer
         flex-flow row wrap
         align-items center
         justify-content space-between
+        flex 0 0 auto
+        min-height 50px
+        @media screen and (max-width: $tablet-width)
+            min-height 150px
         &:first-child
             margin 0 auto 10px auto
             @media screen and (max-width: $tablet-width)

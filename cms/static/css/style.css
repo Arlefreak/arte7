@@ -1000,7 +1000,7 @@ footer {
   display: -ms-flexbox;
   display: box;
   display: flex;
-  min-height: 200px;
+/* min-height 200px */
   text-transform: uppercase;
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
@@ -1038,6 +1038,19 @@ footer .wrapper {
   -ms-flex-pack: justify;
   -webkit-justify-content: space-between;
   justify-content: space-between;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  min-height: 50px;
+}
+@media screen and (max-width: 768px) {
+  footer .wrapper {
+    min-height: 150px;
+  }
 }
 footer .wrapper:first-child {
   margin: 0 auto 10px auto;
