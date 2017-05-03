@@ -3,7 +3,7 @@ boto==2.46.1
 Django==1.11
 django-admin-sortable==2.1
 django-ckeditor==5.2.2
-django-embed-video==1.1.0
+django-embed-video==1.1.2
 django-environ==0.4.2
 django-solo==1.1.2
 django-storages==1.5.2
