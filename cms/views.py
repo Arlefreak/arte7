@@ -5,6 +5,9 @@ from django.core.mail import EmailMessage
 from django.template.loader import get_template
 # from django.template import Context
 
+DEFAULT_TITLE = "ARTE7"
+DEFAULT_DESCRIPTION = "Arte 7 es una institución de carácter privado que nace en 2001; surge por la necesidad de crear una comunidad cinematográfica en donde el análisis del medio cinematográfico sea abordado con la determinación de crear cultura."
+
 def home(request):
     form_class = ContactForm
 
@@ -74,6 +77,8 @@ def home(request):
             return redirect('home')
 
     context = {
+        'title' : DEFAULT_TITLE,
+        'description': DEFAULT_DESCRIPTION,
         'form': form_class,
         'list_frases': list_frases,
         'list_messages': list_messages,
@@ -94,6 +99,8 @@ def carrera(request, slug=None):
             item.active = True
 
     context = {
+        'title' : DEFAULT_TITLE,
+        'description': DEFAULT_DESCRIPTION,
         'list': list,
         'single': single
     }
@@ -123,6 +130,8 @@ def cursos(request, curso_slug=None, temario_slug=None):
             item.active = True
 
     context = {
+        'title' : DEFAULT_TITLE,
+        'description': DEFAULT_DESCRIPTION,
         'list_cursos': list_cursos,
         'single_curso': single_curso,
         'list_temarios': list_temarios,
@@ -134,6 +143,8 @@ def cortos(request):
     list = OperasPrimasEntries.objects.all()
     list_cortos = Cortometrajes.objects.all()
     context = {
+        'title' : DEFAULT_TITLE,
+        'description': DEFAULT_DESCRIPTION,
         'list': list,
         'list_cortos': list_cortos,
     }
@@ -142,6 +153,8 @@ def cortos(request):
 def productora(request):
     list = Filmografia.objects.all()
     context = {
+        'title' : DEFAULT_TITLE,
+        'description': DEFAULT_DESCRIPTION,
         'list': list,
     }
     return render(request, 'productora_peliculas.html', context)
@@ -150,6 +163,8 @@ def plantilla(request):
     list_directiva = Personal.objects.filter(personal_type='DIR')
     list_docente = Personal.objects.filter(personal_type='DOC')
     context = {
+        'title' : DEFAULT_TITLE,
+        'description': DEFAULT_DESCRIPTION,
         'list_directiva': list_directiva,
         'list_docente': list_docente,
     }
