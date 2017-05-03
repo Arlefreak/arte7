@@ -27,6 +27,7 @@ else:
     ALLOWED_HOSTS = [
         '.arlefreak.com',
         '.ellugar.co',
+        '.arte7.net',
         '127.0.0.1',
         'localhost',
     ]
