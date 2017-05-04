@@ -2,6 +2,7 @@
 {% block content %}
 <main>
     <div class="margin"></div>
+    {% if list_directiva %}
     <h1>Directiva</h1>
     <div class="wrapper personal-grid">
         {% for item in list_directiva %}
@@ -22,6 +23,8 @@
         <div class="margin"></div>
         {% endfor %}
     </div>
+    {% endif %}
+    {% if list_docente %}
     <h1>Plantilla docente</h1>
     <div class="margin"></div>
     <div class="wrapper personal-grid">
@@ -43,5 +46,6 @@
         <div class="margin"></div>
         {% endfor %}
     </div>
+    {% endif %}
 </main>
 {% endblock %}

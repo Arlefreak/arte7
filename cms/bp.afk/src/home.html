@@ -106,7 +106,7 @@
 
         <div class="home-foto">
             <div class="rich-text">
-                <h2>resolucion</h2>
+                <h2>resolución</h2>
                 {{  home.description_resolucion | safe }}
             </div>
             <img src="{{  home.image_resolucion.url }}" alt="objetivo">
@@ -121,7 +121,7 @@
 
 <main id="guia" class="black-background">
     <div class="black-wrapper wrapper">
-        <h1>guia del alumno</h1>
+        <h1>guía del alumno</h1>
     </div>
     <div class="wrapper">
         <div class="guia-message">
@@ -173,13 +173,17 @@
                 <h1>contacto</h1>
             </div>
             <div class="wrapper">
+                {% if contacto.title %}
                 <div class="big">
                     <u>{{ contacto.title }}</u>
                 </div>
                 <div class="margin"></div>
+                {% endif %}
+                {% if contacto.description %}
                 <div class="white-text rich-text">
                     {{ contacto.description | safe }}
                 </div>
+                {% endif %}
             </div>
             <div class="margin hide-mobile"></div>
             <div class="margin"></div>
