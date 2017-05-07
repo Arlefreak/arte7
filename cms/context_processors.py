@@ -11,6 +11,8 @@ def menu(request):
         {'name': 'productora / PELÍCULAS', 'url': reverse('productora')},
         {'name': 'plantilla docente', 'url': reverse('plantilla')},
         {'name': 'otras escuelas', 'url': reverse('home') + '#otras-escuelas'},
+        {'name': 'boutique', 'url': reverse('home') + "#boutique"},
+        {'name': 'revista', 'url': reverse('home') + "#boutique"},
     ]}
     for item in menu['menu']:
         if request.path == item['url']:
@@ -21,7 +23,6 @@ def footer_menu(request):
     footer_menu = {"footer_menu": [
         {'name': 'acerca de', 'url': reverse('home') + "#acerca"},
         {'name': 'guia del alumno', 'url': reverse('home') + "#guia"},
-        {'name': 'boutique', 'url': reverse('home') + "#boutique"},
         {'name': 'contacto', 'url': reverse('home') + "#contacto"},
     ]}
     for item in footer_menu['footer_menu']:

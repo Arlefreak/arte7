@@ -121,8 +121,6 @@ def cursos(request, curso_slug=None, temario_slug=None):
             item.active = True
 
     list_temarios = Temario.objects.filter(curso=single_curso)
-    print(temario_slug)
-    print(curso_slug)
     if temario_slug:
         single_temario = get_object_or_404(Temario, curso=single_curso, slug=temario_slug)
     else:

@@ -57,31 +57,6 @@
     <div class="margin hide-mobile"></div>
 </main>
 
-<main id="otras-escuelas" class="black-background">
-    <div class="wrapper otras-escuelas">
-        {% if home.link_frente %}
-        <a href="{{ home.link_frente }}" target="_blank">
-            {% endif %}
-            <img src="{{ home.image_frente.url }}" alt="Frente a camara">
-            {% if home.link_frente %}
-        </a>
-        {% endif %}
-        {% if home.link_plataforma %}
-        <a href="{{ home.link_plataforma }}" target="_blank">
-            {% endif %}
-            <img src="{{ home.image_plataforma.url }}" alt="Plataforma">
-            {% if home.link_plataforma %}
-        </a>
-        {% endif %}
-    </div>
-    <div class="margin"></div>
-    <div class="wrapper otras-escuelas">
-        <h3>otras escuelas</h3>
-    </div>
-    <div class="margin hide-mobile"></div>
-    <div class="margin hide-mobile"></div>
-    <div class="margin hide-mobile"></div>
-</main>
 
 <main id="acerca" class="black-background">
     <div class="wrapper big">
@@ -166,6 +141,32 @@
             <div class="margin hide-mobile"></div>
             <div class="margin hide-mobile"></div>
             <div class="margin"></div>
+        </main>
+
+        <main id="otras-escuelas" class="black-background">
+            <div class="wrapper otras-escuelas">
+                {% if home.link_frente %}
+                <a href="{{ home.link_frente }}" target="_blank">
+                    {% endif %}
+                    <img src="{{ home.image_frente.url }}" alt="Frente a camara">
+                    {% if home.link_frente %}
+                </a>
+                {% endif %}
+                {% if home.link_plataforma %}
+                <a href="{{ home.link_plataforma }}" target="_blank">
+                    {% endif %}
+                    <img src="{{ home.image_plataforma.url }}" alt="Plataforma">
+                    {% if home.link_plataforma %}
+                </a>
+                {% endif %}
+            </div>
+            <div class="margin"></div>
+            <div class="wrapper otras-escuelas">
+                <h3>otras escuelas</h3>
+            </div>
+            <div class="margin hide-mobile"></div>
+            <div class="margin hide-mobile"></div>
+            <div class="margin hide-mobile"></div>
         </main>
 
         <main id="contacto" class="black-background">
