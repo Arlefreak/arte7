@@ -27,8 +27,14 @@ class AdminImageMixin(object):
 # class CKtest(SingletonModelAdmin):
 #     pass
 
+
+@admin.register(Video)
+class VideoAdmin(admin.ModelAdmin, AdminImageMixin):
+    list_display = ('admin_image', 'get_embed_link')
+    list_display_links = ('admin_image', )
+
 @admin.register(Social)
-class CKtest(SingletonModelAdmin):
+class SocialAdmin(SingletonModelAdmin):
     pass
 
 @admin.register(CarreraDeCine)

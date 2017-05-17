@@ -7,6 +7,7 @@ from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from embed_video.fields import EmbedVideoField
 from django.core.urlresolvers import reverse
+from django.conf import settings
 import os
 
 PERSONAL_CHOICES = (
@@ -23,6 +24,20 @@ PAGES = (
     ('HOM', 'home'),
 )
 
+def upload_to_video(instance, filename):
+    import os.path
+    filename_base, filename_ext = os.path.splitext(filename)
+    return 'videos/files/%s%s' % (
+        instance.pk,
+        filename_ext.lower(),)
+
+def upload_to_thumbnail(instance, filename):
+    import os.path
+    filename_base, filename_ext = os.path.splitext(filename)
+    return 'videos/thumbnails/%s%s' % (
+        instance.pk,
+        filename_ext.lower(),)
+
 def upload_to(instance, filename):
     from django.utils.timezone import now
     filename_base, filename_ext = os.path.splitext(filename)
@@ -31,8 +46,31 @@ def upload_to(instance, filename):
         now().strftime("%Y%m%d%H%M%S"),
         filename_ext.lower(),)
 
+class Video(models.Model):
+    video = models.FileField(upload_to=upload_to_video)
+    image = models.ImageField(upload_to=upload_to_thumbnail)
+
+    def get_embed_link(self):
+        return 'http://arte7.net/%d' % self.pk
+
+    def save(self, *args, **kwargs):
+        if self.pk is None:
+            saved_thumbnail = self.thumbnail
+            saved_video = self.video
+            self.thumbnail = None
+            self.video = None
+            super(Video, self).save(*args, **kwargs)
+            self.thumbnail = saved_thumbnail
+            self.video = saved_video
+
+        super(Video, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return 'http://arte7.net/%d' % self.pk
+
 class CKTest(SingletonModel):
     file = RichTextUploadingField()
+    video = EmbedVideoField()
 
 class CarreraDeCine(SingletonModel):
     video = EmbedVideoField()

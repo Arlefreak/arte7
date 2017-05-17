@@ -163,7 +163,7 @@ gulp.task('watch', ['css', 'react', 'img', 'html', 'connect'], ()=> {
     gulp.watch('src/js/**/*.js', ['react']);
     gulp.watch('src/js/**/*.jsx', ['react']);
     gulp.watch('src/img/**/*', ['img']);
-    gulp.watch('src/*.html', ['html']);
+    gulp.watch('src/**/*.html', ['html']);
 });
 
 gulp.task('default', ()=> {

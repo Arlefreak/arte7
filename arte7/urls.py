@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 
     url(r'^$', views.home, name='home'),
+    # url(r'^test/$', views.test, name='test'),
 
     url(r'^carrera/$', views.carrera, name='carrera'),
     url(r'^carrera/(?P<slug>[\w-]+)/$', views.carrera , name='carrera'),

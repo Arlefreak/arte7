@@ -9,6 +9,14 @@ DEFAULT_TITLE = social.title
 DEFAULT_DESCRIPTION = social.description
 DEFAULT_PREVIEW = social.preview
 
+def test(request):
+    context = {
+        'title' : DEFAULT_TITLE,
+        'description': DEFAULT_DESCRIPTION,
+        'preview': DEFAULT_PREVIEW,
+    }
+    return render(request, 'test.html', context)
+
 def home(request):
     form_class = ContactForm
 

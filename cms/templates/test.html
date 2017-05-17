@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load solo_tags %}
+{% load embed_video_tags %}
+{% block content %}
+{% get_solo 'cms.CKTest' as item %}
+<main>
+    <div class="margin"></div>
+    <h1>test</h1>
+    {% video item.video %}
+</main>
+{% endblock %}
