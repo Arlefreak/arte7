@@ -670,6 +670,11 @@ main {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+@media screen and (max-width: 1024px) {
+  .two-column .column {
+    height: auto;
+  }
+}
 .two-column .column:first-child {
   width: 40%;
 }
