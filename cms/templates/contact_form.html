@@ -1,9 +1,9 @@
-<form class="contact_form" role="form" action="/?SOLICITUDENVIADA" method="post" autocomplete="on">
+<form class="contact_form" role="form" action="/?SOLICITUDENVIADA#contacto" method="post" autocomplete="on">
     {% csrf_token %}
     <fieldset>
-        <input type="text" name="contact_name" placeholder="nombre*">
-        <input type="email" name="contact_email" placeholder="e-mail*">
-        <input type="phone" name="contact_phone" placeholder="teléfono*">
+        <input type="text" name="contact_name" placeholder="nombre*" required>
+        <input type="email" name="contact_email" placeholder="e-mail*" required>
+        <input type="phone" name="contact_phone" placeholder="teléfono*" required>
     </fieldset>
     <fieldset>
         <P>¿en qué estás interesado?</P>
@@ -27,7 +27,7 @@
         <label for="rad[5]">
             otros
         </label>
-        <textarea rows="4" cols="50" name="contact_message" placeholder="mensaje"></textarea> 
+        <textarea rows="4" cols="50" name="contact_message" placeholder="mensaje" required></textarea> 
     </fieldset>
     <fieldset class="enviar">
         <input type="submit" value="enviar">
