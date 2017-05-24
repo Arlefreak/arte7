@@ -83,7 +83,7 @@ def home(request):
             )
 
             email.send(fail_silently=False)
-            return redirect('home')
+            return redirect('gracias')
 
     context = {
         'title' : DEFAULT_TITLE,
