@@ -28,12 +28,11 @@
 <main>
     <div class="wrapper video-grid-margin">
         {% for item in list %}
-        {% video item.video is_secure=True as video %}
         <article>
             <div class="cover"
-                style="background-image: url('{{ video.thumbnail }}'"
+                style="background-image: url('{{ item.image.url }}'"
                 >
-                <a data-lity href="{{ video.url }}">
+                <a data-lity href="{{ item.video }}">
                     <img class="play-button" src="{% static "img/play.svg" %}" alt="play">
                 </a>
             </div>
@@ -44,7 +43,6 @@
                 </div>
             </div>
         </article>
-        {% endvideo %}
         {% endfor %}
     </div>
 </main>

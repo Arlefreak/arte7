@@ -146,6 +146,7 @@ class OperasPrimas(SingletonModel):
 class OperasPrimasEntries(SortableMixin):
     order = models.PositiveIntegerField(default=0, editable=False, db_index=True)
     video = EmbedVideoField()
+    image = models.ImageField(upload_to=upload_to)
     title = models.CharField(max_length=140)
     slug  = models.CharField(max_length=200, editable=False)
     description = RichTextField()

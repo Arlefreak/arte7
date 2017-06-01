@@ -85,16 +85,18 @@ class OperasPrimasAdmin(AdminVideoMixin, SingletonModelAdmin):
     pass
 
 @admin.register(OperasPrimasEntries)
-class OperasPrimasEntriesAdmin(ViewOnSiteMixin, AdminVideoMixin, SortableAdmin):
+class OperasPrimasEntriesAdmin(ViewOnSiteMixin, AdminVideoMixin, SortableAdmin, AdminImageMixin):
     save_as = True
     list_display = (
         'order',
         'title',
         'view_on_site',
+        'admin_image',
     )
     list_display_links = (
         'order',
         'title',
+        'admin_image',
     )
 
 @admin.register(Cortometrajes)
