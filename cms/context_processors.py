@@ -12,7 +12,7 @@ def menu(request):
         {'name': 'plantilla docente', 'url': reverse('plantilla')},
         {'name': 'otras escuelas', 'url': reverse('home') + '#otras-escuelas'},
         {'name': 'boutique', 'url': reverse('home') + "#boutique"},
-        {'name': 'revista', 'url': reverse('home') + "#boutique"},
+        {'name': 'revista', 'url': 'https://www.arte7qro.net/blog/' },
     ]}
     for item in menu['menu']:
         if request.path == item['url']:
