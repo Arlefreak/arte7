@@ -1,21 +1,25 @@
-from django.shortcuts import render, render_to_response, get_object_or_404, redirect
-from .models import *
-from .forms import ContactForm
 from django.core.mail import EmailMessage
+from django.shortcuts import (get_object_or_404, redirect, render,
+                              render_to_response)
 from django.template.loader import get_template
+
+from .forms import ContactForm
+from .models import *
 
 social = Social.get_solo()
 DEFAULT_TITLE = social.title
 DEFAULT_DESCRIPTION = social.description
 DEFAULT_PREVIEW = social.preview
 
+
 def test(request):
     context = {
-        'title' : DEFAULT_TITLE,
+        'title': DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
         'preview': DEFAULT_PREVIEW,
     }
     return render(request, 'test.html', context)
+
 
 def home(request):
     form_class = ContactForm
@@ -25,37 +29,21 @@ def home(request):
     list_mosaicos = MosaicosHome.objects.all()
     list_guia = GuiaAlumnoMessages.objects.all()
 
-
     if request.method == 'POST':
         form = form_class(data=request.POST)
 
         if form.is_valid():
-            contact_name = request.POST.get(
-                'contact_name',
-                ''
-            )
+            contact_name = request.POST.get('contact_name', '')
 
-            contact_email = request.POST.get(
-                'contact_email',
-                ''
-            )
+            contact_email = request.POST.get('contact_email', '')
 
-            contact_phone = request.POST.get(
-                'contact_phone',
-                ''
-            )
+            contact_phone = request.POST.get('contact_phone', '')
 
-            contact_interest = request.POST.get(
-                'contact_interest',
-                ''
-            )
+            contact_interest = request.POST.get('contact_interest', '')
 
-            contact_message = request.POST.get(
-                'contact_message',
-                ''
-            )
+            contact_message = request.POST.get('contact_message', '')
 
-            # Email the profile with the 
+            # Email the profile with the
             # contact information
             template = get_template('contact_template.txt')
             context = {
@@ -79,14 +67,14 @@ def home(request):
                 content,
                 send_from,
                 [send_to],
-                reply_to = [contact_email],
+                reply_to=[contact_email],
             )
 
             email.send(fail_silently=False)
             return redirect('gracias')
 
     context = {
-        'title' : DEFAULT_TITLE,
+        'title': DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
         'preview': DEFAULT_PREVIEW,
         'form': form_class,
@@ -97,10 +85,11 @@ def home(request):
     }
     return render(request, 'home.html', context)
 
+
 def carrera(request, slug=None):
     list = PlanDeEstudios.objects.all()
     if slug:
-        single = get_object_or_404(PlanDeEstudios, slug = slug)
+        single = get_object_or_404(PlanDeEstudios, slug=slug)
     else:
         single = PlanDeEstudios.objects.all().first()
 
@@ -109,7 +98,7 @@ def carrera(request, slug=None):
             item.active = True
 
     context = {
-        'title' : DEFAULT_TITLE,
+        'title': DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
         'preview': DEFAULT_PREVIEW,
         'list': list,
@@ -117,10 +106,11 @@ def carrera(request, slug=None):
     }
     return render(request, 'carrera_de_cine.html', context)
 
+
 def cursos(request, curso_slug=None, temario_slug=None):
     list_cursos = CursosTalleres.objects.all()
     if curso_slug:
-        single_curso = get_object_or_404(CursosTalleres, slug = curso_slug)
+        single_curso = get_object_or_404(CursosTalleres, slug=curso_slug)
     else:
         single_curso = CursosTalleres.objects.all().first()
 
@@ -130,7 +120,8 @@ def cursos(request, curso_slug=None, temario_slug=None):
 
     list_temarios = Temario.objects.filter(curso=single_curso)
     if temario_slug:
-        single_temario = get_object_or_404(Temario, curso=single_curso, slug=temario_slug)
+        single_temario = get_object_or_404(
+            Temario, curso=single_curso, slug=temario_slug)
     else:
         single_temario = Temario.objects.filter(curso=single_curso).first()
 
@@ -139,7 +130,7 @@ def cursos(request, curso_slug=None, temario_slug=None):
             item.active = True
 
     context = {
-        'title' : DEFAULT_TITLE,
+        'title': DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
         'preview': DEFAULT_PREVIEW,
         'list_cursos': list_cursos,
@@ -149,11 +140,12 @@ def cursos(request, curso_slug=None, temario_slug=None):
     }
     return render(request, 'cursos_talleres.html', context)
 
+
 def cortos(request):
     list = OperasPrimasEntries.objects.all()
     list_cortos = Cortometrajes.objects.all()
     context = {
-        'title' : DEFAULT_TITLE,
+        'title': DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
         'preview': DEFAULT_PREVIEW,
         'list': list,
@@ -161,21 +153,23 @@ def cortos(request):
     }
     return render(request, 'operas_primas_cortometrajes.html', context)
 
+
 def productora(request):
     list = Filmografia.objects.all()
     context = {
-        'title' : DEFAULT_TITLE,
+        'title': DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
         'preview': DEFAULT_PREVIEW,
         'list': list,
     }
     return render(request, 'productora_peliculas.html', context)
 
+
 def plantilla(request):
     list_directiva = Personal.objects.filter(personal_type='DIR')
     list_docente = Personal.objects.filter(personal_type='DOC')
     context = {
-        'title' : DEFAULT_TITLE,
+        'title': DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
         'preview': DEFAULT_PREVIEW,
         'list_directiva': list_directiva,
