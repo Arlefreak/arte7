@@ -1,0 +1,31 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+appdirs = "==1.4.3"
+boto = "==2.46.1"
+django-admin-sortable = "==2.1"
+django-ckeditor = "==5.2.2"
+django-embed-video = "==1.1.2"
+django-environ = "==0.4.2"
+django-solo = "==1.1.2"
+django-storages = "==1.5.2"
+greenlet = "==0.4.12"
+gunicorn = "==19.7.1"
+msgpack-python = "==0.4.8"
+neovim = "==0.1.13"
+olefile = "==0.44"
+"psycopg2" = "==2.7.1"
+pyparsing = "==2.2.0"
+pytz = "==2017.2"
+requests = "==2.13.0"
+six = "==1.10.0"
+Django = "==1.11"
+Pillow = "==4.1.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.7"
