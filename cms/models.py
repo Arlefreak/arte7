@@ -5,9 +5,9 @@ from adminsortable.models import SortableMixin
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.conf import settings
-from django.core.urlresolvers import reverse
 from django.db import models
 from django.template import defaultfilters
+from django.urls import reverse
 from embed_video.fields import EmbedVideoField
 from solo.models import SingletonModel
 
@@ -144,7 +144,7 @@ class CursosTalleres(SortableMixin):
 
 
 class Temario(SortableMixin):
-    curso = SortableForeignKey('CursosTalleres')
+    curso = SortableForeignKey('CursosTalleres', on_delete=models.CASCADE)
     order = models.PositiveIntegerField(
         default=0, editable=False, db_index=True)
     title = models.CharField(max_length=140)
