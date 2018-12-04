@@ -412,3 +412,6 @@ class Social(SingletonModel):
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=300)
     preview = models.ImageField(upload_to=upload_to)
+
+    def __str__(self):
+        return "Social links"
