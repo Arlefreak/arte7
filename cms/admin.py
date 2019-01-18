@@ -5,23 +5,31 @@ from embed_video.admin import AdminVideoMixin
 from embed_video.backends import VideoBackend
 from solo.admin import SingletonModelAdmin
 
-from .models import *
+from .models import (
+    Boutique, CarreraDeCine, Contacto, Cortometrajes, CursosTalleres,
+    Filmografia, FrasesHome, GuiaAlumnoMessages, Home, MessagesHome,
+    MosaicosHome, OperasPrimas, OperasPrimasEntries, Partners, Personal,
+    PlanDeEstudios, Productora, Publicidad, Social, Temario, Video)
 
 
 class ViewOnSiteMixin(object):
+    @mark_safe
     def view_on_site(self, obj):
-        return mark_safe("<a class='button' href='%s'>view on site</a>" %
-                         obj.get_absolute_url())
+        url = obj.get_absolute_url()
+        return f"<a class='button' href='{url}'>view on site</a>"
 
     view_on_site.allow_tags = True
     view_on_site.short_description = u"View on site"
 
 
 class AdminImageMixin(object):
+    @mark_safe
     def admin_image(self, obj):
-        return mark_safe(
-            "<img src='%s' style='height: 100px; width: auto; display: block'/>"
-            % obj.image.url)
+        return f"""<img
+                        src='{obj.image.url}'
+                        style='height: 100px; width: auto; display: block'
+                    />
+                """
 
     admin_image.allow_tags = True
     admin_image.short_description = u"Preview"
@@ -162,7 +170,7 @@ class FilmografiaAdmin(AdminImageMixin, ViewOnSiteMixin, SortableAdmin):
 
 
 @admin.register(Personal)
-class FilmografiaAdmin(AdminImageMixin, ViewOnSiteMixin, SortableAdmin):
+class PersonalAdmin(AdminImageMixin, ViewOnSiteMixin, SortableAdmin):
     save_as = True
     list_display = (
         'order',
@@ -261,4 +269,13 @@ class GuiaAlumnoMessagesAdmin(ViewOnSiteMixin, SortableAdmin):
         'order',
         'title',
         'file',
+    )
+
+
+@admin.register(Partners)
+class PartnersAdmin(SortableAdmin, AdminImageMixin):
+    list_display = ('name', 'admin_image', 'link')
+    list_display_links = (
+        'name',
+        'admin_image',
     )

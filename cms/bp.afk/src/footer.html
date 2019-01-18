@@ -8,7 +8,7 @@
                 {% for page in footer_menu %}
                 <li>
                     <a class="{% if page.active %} active{% endif %}"
-                    href="{{page.url}}" title="{{page.name}}">{{page.name}}</a>
+                       href="{{page.url}}" title="{{page.name}}">{{page.name}}</a>
                 </li>
                 {% endfor %}
             </ul>
@@ -25,7 +25,17 @@
         <span class="copy">ARTE 7 TODOS LOS DERECHOS RESERVADOS ©2017</span>
         <div class="canon">
             <span>CON EL APOYO DE</span>
-            <img src="{% static "img/logo_canon.svg" %}" alt="canon">
+            <div class="partners">
+                {% for partner in list_partners %}
+                {% if partner.link %}
+                <a href="{{partner.link}}" target="_blank" rel="noopener noreferrer">
+                    {% endif %}
+                    <img src="{{partner.image.url}}" alt="{{partner.name}}">
+                    {% if partner.link %}
+                </a>
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
         <nav class="social">
             <ul>

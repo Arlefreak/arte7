@@ -4,7 +4,6 @@ from adminsortable.fields import SortableForeignKey
 from adminsortable.models import SortableMixin
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
-from django.conf import settings
 from django.db import models
 from django.template import defaultfilters
 from django.urls import reverse
@@ -415,3 +414,19 @@ class Social(SingletonModel):
 
     def __str__(self):
         return "Social links"
+
+
+class Partners(SortableMixin):
+    name = models.CharField(max_length=140)
+    image = models.FileField(upload_to=upload_to)
+    link = models.URLField(blank=True, null=True)
+    order = models.PositiveIntegerField(
+        default=0, editable=False, db_index=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Socio'
+        verbose_name_plural = 'Socios'
+        ordering = ['order']

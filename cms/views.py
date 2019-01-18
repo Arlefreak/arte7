@@ -4,7 +4,10 @@ from django.shortcuts import (get_object_or_404, redirect, render,
 from django.template.loader import get_template
 
 from .forms import ContactForm
-from .models import *
+from .models import (Cortometrajes, CursosTalleres, Filmografia, FrasesHome,
+                     GuiaAlumnoMessages, MessagesHome, MosaicosHome,
+                     OperasPrimasEntries, Partners, Personal, PlanDeEstudios,
+                     Social, Temario)
 
 social = Social.get_solo()
 DEFAULT_TITLE = social.title
@@ -28,6 +31,7 @@ def home(request):
     list_messages = MessagesHome.objects.all()
     list_mosaicos = MosaicosHome.objects.all()
     list_guia = GuiaAlumnoMessages.objects.all()
+    list_partners = Partners.objects.all()
 
     if request.method == 'POST':
         form = form_class(data=request.POST)
@@ -82,12 +86,14 @@ def home(request):
         'list_messages': list_messages,
         'list_mosaicos': list_mosaicos,
         'list_guia': list_guia,
+        'list_partners': list_partners,
     }
     return render(request, 'home.html', context)
 
 
 def carrera(request, slug=None):
     list = PlanDeEstudios.objects.all()
+    list_partners = Partners.objects.all()
     if slug:
         single = get_object_or_404(PlanDeEstudios, slug=slug)
     else:
@@ -102,6 +108,7 @@ def carrera(request, slug=None):
         'description': DEFAULT_DESCRIPTION,
         'preview': DEFAULT_PREVIEW,
         'list': list,
+        'list_partners': list_partners,
         'single': single
     }
     return render(request, 'carrera_de_cine.html', context)
@@ -109,6 +116,7 @@ def carrera(request, slug=None):
 
 def cursos(request, curso_slug=None, temario_slug=None):
     list_cursos = CursosTalleres.objects.all()
+    list_partners = Partners.objects.all()
     if curso_slug:
         single_curso = get_object_or_404(CursosTalleres, slug=curso_slug)
     else:
@@ -136,6 +144,7 @@ def cursos(request, curso_slug=None, temario_slug=None):
         'list_cursos': list_cursos,
         'single_curso': single_curso,
         'list_temarios': list_temarios,
+        'list_partners': list_partners,
         'single_temario': single_temario,
     }
     return render(request, 'cursos_talleres.html', context)
@@ -144,23 +153,27 @@ def cursos(request, curso_slug=None, temario_slug=None):
 def cortos(request):
     list = OperasPrimasEntries.objects.all()
     list_cortos = Cortometrajes.objects.all()
+    list_partners = Partners.objects.all()
     context = {
         'title': DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
         'preview': DEFAULT_PREVIEW,
         'list': list,
         'list_cortos': list_cortos,
+        'list_partners': list_partners,
     }
     return render(request, 'operas_primas_cortometrajes.html', context)
 
 
 def productora(request):
     list = Filmografia.objects.all()
+    list_partners = Partners.objects.all()
     context = {
         'title': DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
         'preview': DEFAULT_PREVIEW,
         'list': list,
+        'list_partners': list_partners,
     }
     return render(request, 'productora_peliculas.html', context)
 
@@ -168,11 +181,13 @@ def productora(request):
 def plantilla(request):
     list_directiva = Personal.objects.filter(personal_type='DIR')
     list_docente = Personal.objects.filter(personal_type='DOC')
+    list_partners = Partners.objects.all()
     context = {
         'title': DEFAULT_TITLE,
         'description': DEFAULT_DESCRIPTION,
         'preview': DEFAULT_PREVIEW,
         'list_directiva': list_directiva,
         'list_docente': list_docente,
+        'list_partners': list_partners,
     }
     return render(request, 'plantilla_docente.html', context)
