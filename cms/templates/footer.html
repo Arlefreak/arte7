@@ -22,15 +22,15 @@
         </nav>
     </div>
     <div class="wrapper">
-        <span class="copy">ARTE 7 TODOS LOS DERECHOS RESERVADOS ©2017</span>
-        <div class="canon">
-            <span>CON EL APOYO DE</span>
-            <div class="partners">
+        <p class="copy">ARTE 7 TODOS LOS DERECHOS RESERVADOS ©2017</p>
+        <div class="partners-container">
+            <span class="partner-title">CON EL APOYO DE</span>
+            <div class="partner-list">
                 {% for partner in list_partners %}
                 {% if partner.link %}
-                <a href="{{partner.link}}" target="_blank" rel="noopener noreferrer">
+                <a class="partner-item" href="{{partner.link}}" target="_blank" rel="noopener noreferrer">
                     {% endif %}
-                    <img src="{{partner.image.url}}" alt="{{partner.name}}">
+                    <img src="{{partner.image.url}}" alt="{{partner.name}}" class="{% if not partner.link %}partner-item{% endif %}" >
                     {% if partner.link %}
                 </a>
                 {% endif %}

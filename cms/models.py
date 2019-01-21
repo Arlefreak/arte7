@@ -427,6 +427,6 @@ class Partners(SortableMixin):
         return self.name
 
     class Meta:
-        verbose_name = 'Socio'
-        verbose_name_plural = 'Socios'
+        verbose_name = 'Aliado'
+        verbose_name_plural = 'Aliados'
         ordering = ['order']

@@ -12,7 +12,7 @@ footer
         height 100%
         display flex
         flex-flow row wrap
-        align-items center
+        align-items end
         justify-content space-between
         flex 0 0 auto
         min-height 50px
@@ -26,29 +26,34 @@ footer
             margin 10px auto 0 auto
             @media screen and (max-width: $tablet-width)
                 auto
-        span:first-child
-            font-size 0.5em
-            letter-spacing 0.3em
-        .canon
-            margin 0 0 0 90px
+        .partners-container
+            margin 0 0 0 0
             @media screen and (max-width: $tablet-width)
                 margin 20px 0 0 0
-                width 50%
-            .partners
+                width 100%
+            .partner-list
                 display flex
                 flex-flow row
-            span
+                justify-content center
+                align-content center
+            .partner-item
+                max-width: 200px
+                @media screen and (max-width: $tablet-width)
+                    max-width 50%
+            .partner-item:not(:last-child)
+                margin-right 10px
+            .partner-title
                 width 100%
                 text-align center
-            img
-                width auto
-                max-width: 200px
-            *
-                &:not(:last-child)
-                    margin-right 10px
+            a img
+                width 100%
+                display block
+                height auto
         .copy
-            align-self flex-end
             opacity 0.7
+            margin 0
+            font-size 0.5em
+            letter-spacing 0.3em
             @media screen and (max-width: $tablet-width)
                 line-height 2.0em
         div
@@ -103,7 +108,8 @@ footer
         font-size 1.2em
         @media screen and (max-width: $tablet-width)
             margin 20px 0 0 0
-            width 50%
+            width 100%
+            text-align center
         ul
             width 100%
             display flex
@@ -112,5 +118,7 @@ footer
             justify-content flex-end
             li
                 margin 0 10px 0 0
+            @media screen and (max-width: $tablet-width)
+                justify-content center
     span
         font-size 0.7em
